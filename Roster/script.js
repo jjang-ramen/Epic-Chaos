@@ -1,7 +1,6 @@
 const mythicRoster = [
   { name: "Roseachi", team: "mythic", role: "tank", className: "Monk", spec: "Brewmaster", realm: "Illidan", ilvl: 287 },
   { name: "Giaus", team: "mythic", role: "tank", className: "Paladin", spec: "Protection", realm: "Thrall", ilvl: 290 },
-  { name: "Heynots", team: "mythic", role: "healer", className: "Druid", spec: "Restoration", realm: "Stormrage", ilvl: 288 },
   { name: "Fishguts", team: "mythic", role: "healer", className: "Monk", spec: "Mistweaver", realm: "Ursin", ilvl: 288 },
   { name: "Solitairy", team: "mythic", role: "healer", className: "Paladin", spec: "Holy", realm: "Illidan", ilvl: 286 },
   { name: "Nymueh", team: "mythic", role: "healer", className: "Priest", spec: "Holy", realm: "Zul'jin", ilvl: 288 },

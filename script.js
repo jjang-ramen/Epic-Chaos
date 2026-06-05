@@ -103,7 +103,6 @@ const requirements = {
         "Heroic/AOTC team runs Wednesday, 8:00 PM - 10:00 PM EST.",
         "At least one +8 Mythic+ in your vault per week.",
         "Be ready for Heroic progression without making it a job.",
-        "Four Heroic Group spots were listed on Warcraft Logs."
       ]
     },
     {
