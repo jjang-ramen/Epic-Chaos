@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Epic Chaos Roster</title>
+    <meta
+      name="description"
+      content="Epic Chaos raid roster page with separate Mythic Team and Heroic Team sections."
+    >
+    <link rel="stylesheet" href="../style.css?v=17">
+    <link rel="stylesheet" href="style.css?v=3">
+    <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script defer src="script.js?v=2"></script>
+  </head>
+  <body class="roster-page">
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Primary navigation">
+        <a class="brand" href="../index.html?v=10" aria-label="Epic Chaos home">
+          <img class="brand-logo-img" src="../assets/epic-chaos-logo-v5.png" alt="" width="46" height="46">
+          <span>
+            <strong>Epic Chaos</strong>
+            <small>US - Zul'jin</small>
+          </span>
+        </a>
+
+        <button class="icon-button nav-toggle" type="button" aria-label="Open navigation" aria-controls="siteNav" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+
+        <div class="nav-links" id="siteNav">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#schedule">Schedule</a>
+          <a href="index.html" aria-current="page">Roster</a>
+          <a href="../Logs/index.html">Logs</a>
+          <a href="../index.html#requirements">Rules</a>
+          <a href="../Recruitment/index.html">Recruitment</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="roster-hero" aria-labelledby="rosterPageTitle">
+        <div>
+          <p class="eyebrow">Epic Chaos raid teams</p>
+          <h1 id="rosterPageTitle">Raid Roster</h1>
+          <p class="lead">
+            Mythic Team and Heroic Team are separated here so the homepage can stay focused.
+            Heroic Team sheet order values are not shown.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="../index.html?v=10">
+              <i data-lucide="home"></i>
+              Home
+            </a>
+            <a class="button" href="https://forms.gle/5R5TwA4dQadTschp9">
+              <i data-lucide="send"></i>
+              Apply
+            </a>
+          </div>
+        </div>
+
+        <div class="roster-dashboard" id="rosterDashboard" aria-label="Roster summary"></div>
+      </section>
+
+      <section class="section roster-controls-section" aria-label="Roster controls">
+        <div class="section-inner roster-control-row">
+          <div class="segmented" role="group" aria-label="Team filter">
+            <button class="is-active" type="button" data-team-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-team-filter="mythic" aria-pressed="false">Mythic Team</button>
+            <button type="button" data-team-filter="heroic" aria-pressed="false">Heroic Team</button>
+          </div>
+
+          <div class="segmented" role="group" aria-label="Role filter">
+            <button class="is-active" type="button" data-role-filter="all" aria-pressed="true">All Roles</button>
+            <button type="button" data-role-filter="tank" aria-pressed="false">Tanks</button>
+            <button type="button" data-role-filter="healer" aria-pressed="false">Healers</button>
+            <button type="button" data-role-filter="dps" aria-pressed="false">DPS</button>
+          </div>
+
+          <label class="search-box roster-search">
+            <i data-lucide="search"></i>
+            <input id="rosterSearch" type="search" placeholder="Search roster" autocomplete="off">
+          </label>
+        </div>
+      </section>
+
+      <section class="section band-ink team-section" id="mythic-team" data-team-section="mythic" aria-labelledby="mythicTitle">
+        <div class="section-inner">
+          <div class="section-head roster-team-head">
+            <div>
+              <p class="section-kicker">Warcraft Logs composition</p>
+              <h2 id="mythicTitle">Mythic Team</h2>
+              <p>Tanks 2, healers 5, DPS 17. Item levels are from the current Mythic roster snapshot.</p>
+            </div>
+            <div class="team-summary" id="mythicSummary"></div>
+          </div>
+          <div class="roster-grid team-grid" id="mythicRoster"></div>
+        </div>
+      </section>
+
+      <section class="section band-dark team-section" id="heroic-team" data-team-section="heroic" aria-labelledby="heroicTitle">
+        <div class="section-inner">
+          <div class="section-head roster-team-head">
+            <div>
+              <p class="section-kicker">Current sheet roster</p>
+              <h2 id="heroicTitle">Heroic Team</h2>
+              <p>Current Heroic Team members from the sheet screenshot. Sheet order values are intentionally left out.</p>
+            </div>
+            <div class="team-summary" id="heroicSummary"></div>
+          </div>
+          <div class="roster-grid team-grid" id="heroicRoster"></div>
+        </div>
+      </section>
+    </main>
+  </body>

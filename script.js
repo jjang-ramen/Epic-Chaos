@@ -25,7 +25,7 @@ const roster = [
   { name: "Ramenstrong", role: "dps", className: "Warrior", spec: "Fury", realm: "Area 52", ilvl: 289 }
 ];
 
-const reports = [
+let reports = [
   { title: "Heroic", owner: "Skaidi", url: "https://www.warcraftlogs.com/reports/QMnCzTFt3GvLxYRa" },
   { title: "May 30, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/NM3wxZPCmbL72yfY" },
   { title: "May 29, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/2jpDn36qGAxkcHLR" },
@@ -33,6 +33,9 @@ const reports = [
   { title: "May 27, 2026", owner: "Skaidi", url: "https://www.warcraftlogs.com/reports/f8XNhpA2bvWZqyDL" },
   { title: "May 23, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/FQmJdk4WMwTY8nv7" }
 ];
+
+const reportsFeedUrl = window.EPIC_CHAOS_REPORTS_ENDPOINT || "reports.json";
+const reportsRefreshMs = 5 * 60 * 1000;
 
 const requirements = {
   rules: [
@@ -179,6 +182,10 @@ const siteNav = document.querySelector("#siteNav");
 let activeRole = "all";
 
 function getFilteredRoster() {
+  if (!rosterSearch) {
+    return roster;
+  }
+
   const search = rosterSearch.value.trim().toLowerCase();
 
   return roster.filter((player) => {
@@ -189,6 +196,10 @@ function getFilteredRoster() {
 }
 
 function renderRoster() {
+  if (!rosterGrid || !rosterSummary || !rosterSearch) {
+    return;
+  }
+
   const visible = getFilteredRoster();
   const average = visible.length
     ? Math.round(visible.reduce((sum, player) => sum + player.ilvl, 0) / visible.length)
@@ -222,6 +233,10 @@ function renderRoster() {
 }
 
 function renderRequirements(key) {
+  if (!requirementPanel) {
+    return;
+  }
+
   requirementPanel.innerHTML = requirements[key].map((group) => `
     <article class="requirement-card">
       <h3>${escapeHtml(group.title)}</h3>
@@ -233,6 +248,10 @@ function renderRequirements(key) {
 }
 
 function renderReports() {
+  if (!reportsList) {
+    return;
+  }
+
   reportsList.innerHTML = reports.map((report) => `
     <a class="report-row" href="${report.url}">
       <strong>${escapeHtml(report.title)}</strong>
@@ -242,48 +261,101 @@ function renderReports() {
   `).join("");
 }
 
-roleButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    activeRole = button.dataset.roleFilter;
-    roleButtons.forEach((item) => {
-      const selected = item === button;
-      item.classList.toggle("is-active", selected);
-      item.setAttribute("aria-pressed", String(selected));
-    });
-    renderRoster();
-  });
-});
+function normalizeReport(report) {
+  return {
+    title: report.title || report.name || report.label || "Warcraft Logs report",
+    owner: report.owner || report.uploader || report.userName || "Warcraft Logs",
+    url: report.url || (report.code ? `https://www.warcraftlogs.com/reports/${report.code}` : "https://www.warcraftlogs.com/guild/reports-list/709946")
+  };
+}
 
-requirementButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    requirementButtons.forEach((item) => {
-      const selected = item === button;
-      item.classList.toggle("is-active", selected);
-      item.setAttribute("aria-selected", String(selected));
+async function refreshReportsFromFeed() {
+  if (!reportsList || !reportsFeedUrl) {
+    return;
+  }
+
+  const reportsPanel = reportsList.closest(".reports-panel");
+  reportsPanel?.classList.add("is-updating");
+
+  try {
+    const response = await fetch(reportsFeedUrl, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`Reports feed returned ${response.status}`);
+    }
+
+    const payload = await response.json();
+    const nextReports = Array.isArray(payload) ? payload : payload.reports;
+    if (Array.isArray(nextReports) && nextReports.length) {
+      reports = nextReports.map(normalizeReport).slice(0, 6);
+      renderReports();
+    }
+  } catch {
+    // Keep the baked-in reports if the live feed is unavailable.
+  } finally {
+    reportsPanel?.classList.remove("is-updating");
+  }
+}
+
+function startReportsAutoRefresh() {
+  if (!reportsList) {
+    return;
+  }
+
+  refreshReportsFromFeed();
+  window.setInterval(refreshReportsFromFeed, reportsRefreshMs);
+}
+
+if (roleButtons.length && rosterSearch) {
+  roleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeRole = button.dataset.roleFilter;
+      roleButtons.forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle("is-active", selected);
+        item.setAttribute("aria-pressed", String(selected));
+      });
+      renderRoster();
     });
-    renderRequirements(button.dataset.requirementTab);
-    if (window.lucide) {
-      window.lucide.createIcons();
+  });
+}
+
+if (requirementButtons.length) {
+  requirementButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      requirementButtons.forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle("is-active", selected);
+        item.setAttribute("aria-selected", String(selected));
+      });
+      renderRequirements(button.dataset.requirementTab);
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  });
+}
+
+if (rosterSearch) {
+  rosterSearch.addEventListener("input", renderRoster);
+}
+
+if (navToggle && siteNav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = siteNav.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  siteNav.addEventListener("click", (event) => {
+    if (event.target.matches("a")) {
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
     }
   });
-});
-
-rosterSearch.addEventListener("input", renderRoster);
-
-navToggle.addEventListener("click", () => {
-  const isOpen = siteNav.classList.toggle("is-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-});
-
-siteNav.addEventListener("click", (event) => {
-  if (event.target.matches("a")) {
-    siteNav.classList.remove("is-open");
-    navToggle.setAttribute("aria-expanded", "false");
-  }
-});
+}
 
 renderRoster();
 renderReports();
+startReportsAutoRefresh();
 renderRequirements("rules");
 
 if (window.lucide) {
