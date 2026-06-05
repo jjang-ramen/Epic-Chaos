@@ -1,7 +1,6 @@
 const roster = [
   { name: "Roseachi", role: "tank", className: "Monk", spec: "Brewmaster", realm: "Illidan", ilvl: 287 },
   { name: "Giaus", role: "tank", className: "Paladin", spec: "Protection", realm: "Thrall", ilvl: 290 },
-  { name: "Heynots", role: "healer", className: "Druid", spec: "Restoration", realm: "Stormrage", ilvl: 288 },
   { name: "Fishguts", role: "healer", className: "Monk", spec: "Mistweaver", realm: "Ursin", ilvl: 288 },
   { name: "Solitairy", role: "healer", className: "Paladin", spec: "Holy", realm: "Illidan", ilvl: 286 },
   { name: "Nymueh", role: "healer", className: "Priest", spec: "Holy", realm: "Zul'jin", ilvl: 288 },
