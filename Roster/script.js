@@ -10,7 +10,7 @@ const mythicRoster = [
   { name: "Manakar", team: "mythic", role: "dps", className: "Demon Hunter", spec: "Devourer", realm: "Illidan", ilvl: 288 },
   { name: "Sianotic", team: "mythic", role: "dps", className: "Demon Hunter", spec: "Devourer", realm: "Mal'Ganis", ilvl: 288 },
   { name: "Flashock", team: "mythic", role: "dps", className: "Demon Hunter", spec: "Havoc", realm: "Stormrage", ilvl: 289 },
-  { name: "Crankbuilds", team: "mythic", role: "dps", className: "Druid", spec: "Balance", realm: "Sargeras", ilvl: 289 },
+  { name: "Justin", team: "mythic", role: "dps", className: "Druid", spec: "Balance", realm: "Sargeras", ilvl: 289 },
   { name: "Dragonboww", team: "mythic", role: "dps", className: "Hunter", spec: "Beast Mastery", realm: "Zul'jin", ilvl: 287 },
   { name: "Serzul", team: "mythic", role: "dps", className: "Hunter", spec: "Beast Mastery", realm: "Sen'jin", ilvl: 288 },
   { name: "Scarymonstr", team: "mythic", role: "dps", className: "Mage", spec: "Frost", realm: "Thrall", ilvl: 287 },

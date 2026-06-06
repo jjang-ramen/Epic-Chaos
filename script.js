@@ -10,7 +10,7 @@ const roster = [
   { name: "Manakar", role: "dps", className: "Demon Hunter", spec: "Devourer", realm: "Illidan", ilvl: 288 },
   { name: "Sianotic", role: "dps", className: "Demon Hunter", spec: "Devourer", realm: "Mal'Ganis", ilvl: 288 },
   { name: "Flashock", role: "dps", className: "Demon Hunter", spec: "Havoc", realm: "Stormrage", ilvl: 289 },
-  { name: "Crankbuilds", role: "dps", className: "Druid", spec: "Balance", realm: "Sargeras", ilvl: 289 },
+  { name: "Justin", role: "dps", className: "Druid", spec: "Balance", realm: "Sargeras", ilvl: 289 },
   { name: "Dragonboww", role: "dps", className: "Hunter", spec: "Beast Mastery", realm: "Zul'jin", ilvl: 287 },
   { name: "Serzul", role: "dps", className: "Hunter", spec: "Beast Mastery", realm: "Sen'jin", ilvl: 288 },
   { name: "Scarymonstr", role: "dps", className: "Mage", spec: "Frost", realm: "Thrall", ilvl: 287 },
