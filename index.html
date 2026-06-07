@@ -8,7 +8,7 @@
       name="description"
       content="Epic Chaos is an 18+ World of Warcraft guild on US-Zul'jin with Heroic and Mythic raid teams, active Discord, Mythic+, and community events."
     >
-    <link rel="stylesheet" href="style.css?v=17">
+    <link rel="stylesheet" href="style.css?v=19">
     <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
     <script defer src="script.js?v=10"></script>
   </head>
@@ -31,11 +31,11 @@
 
         <div class="nav-links" id="siteNav">
           <a href="index.html" aria-current="page">Home</a>
-          <a href="#schedule">Schedule</a>
+          <a href="#recruitment">Schedule</a>
           <a href="Roster/index.html">Roster</a>
           <a href="Logs/index.html">Logs</a>
           <a href="#requirements">Rules</a>
-          <a href="Recruitment/index.html">Recruitment</a>
+          <a href="#recruitment">Recruitment</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -53,7 +53,9 @@
 
           <div class="leader-strip" aria-label="Guild leadership">
             <span><b>Guild Master</b> Jess</span>
-            <span><b>Raid Lead</b> Dragons</span>
+            <span><b>Raid Leader</b> Dragons</span>
+            <span><b>Officer</b> Giaus</span>
+            <span><b>Officer</b> Tiberius</span>
             <span><b>Discord</b> very active</span>
           </div>
 
@@ -112,46 +114,101 @@
         </div>
       </section>
 
-      <section class="section band-dark" id="schedule" aria-labelledby="scheduleTitle">
-        <div class="section-inner">
-          <p class="section-kicker">Raid times</p>
-          <div class="section-head">
-            <h2 id="scheduleTitle">The Weekly Board</h2>
-            <p>Invites go out 15 minutes early. Raiders should be at the entrance 10 minutes early, stocked and ready.</p>
+      <section class="section band-recruitment" id="recruitment" aria-labelledby="recruitmentTitle">
+        <div class="section-inner recruitment-feature">
+          <div class="recruitment-copy">
+            <p class="section-kicker">Recruitment</p>
+            <h2 id="recruitmentTitle">Join the raid without losing the hangout.</h2>
+            <p class="recruitment-lead">
+              We recruit people, not just specs. Heroic spots, Mythic benchers, Mythic+ players,
+              socials, and Discord regulars all have room here if they bring the right attitude.
+            </p>
+            <div class="recruitment-pills" aria-label="Open recruitment lanes">
+              <span>Heroic spots</span>
+              <span>Mythic bench</span>
+              <span>Mythic+ players</span>
+              <span>Socials welcome</span>
+            </div>
           </div>
 
-          <div class="schedule-grid">
-            <article class="schedule-card">
-              <div class="day">Wed</div>
-              <div>
-                <h3>Heroic Team / AOTC</h3>
-                <p>8:00 PM - 10:00 PM EST</p>
-              </div>
-              <span>Heroic</span>
+          <aside class="raid-times-panel" aria-label="Recruitment raid schedule">
+            <span class="raid-times-label">Raid Nights</span>
+            <div class="raid-time-line">
+              <span>Heroic Team</span>
+              <strong>Wednesday</strong>
+              <b>8:00 PM - 10:00 PM EST</b>
+            </div>
+            <div class="raid-time-line">
+              <span>Mythic Team</span>
+              <strong>Friday</strong>
+              <b>9:00 PM - 12:00 AM EST</b>
+            </div>
+            <div class="raid-time-line">
+              <span>Mythic Team</span>
+              <strong>Saturday</strong>
+              <b>9:00 PM - 12:00 AM EST</b>
+            </div>
+          </aside>
+        </div>
+
+        <div class="section-inner recruitment-board">
+          <div class="recruitment-section-head">
+            <div>
+              <p class="section-kicker">Current needs</p>
+              <h3>Currently Recruiting</h3>
+            </div>
+            <p>Heroic Group spots are open. Mythic benchers and fill-ins are also welcome.</p>
+          </div>
+
+          <div class="recruit-grid">
+            <article class="need-card high">
+              <h3>High</h3>
+              <p>Evoker Augmentation, Evoker Devastation, Warlock Demonology, Warrior Fury</p>
             </article>
-            <article class="schedule-card accent">
-              <div class="day">Fri</div>
-              <div>
-                <h3>Mythic Team</h3>
-                <p>9:00 PM - 12:00 AM EST</p>
-              </div>
-              <span>Mythic</span>
+            <article class="need-card medium">
+              <h3>Medium</h3>
+              <p>Rogue Assassination, Rogue Outlaw, Rogue Subtlety</p>
             </article>
-            <article class="schedule-card accent">
-              <div class="day">Sat</div>
-              <div>
-                <h3>Mythic Team</h3>
-                <p>9:00 PM - 12:00 AM EST</p>
-              </div>
-              <span>Mythic</span>
+            <article class="need-card low">
+              <h3>Low</h3>
+              <p>All classes for Mythic raid benchers and fill-ins</p>
             </article>
-            <article class="schedule-card quiet">
-              <div class="day">Sun</div>
-              <div>
-                <h3>Movie Night</h3>
-                <p>8:00 PM - 10:00 PM EST, monthly-ish</p>
-              </div>
-              <span>Social</span>
+            <article class="need-card social">
+              <h3>Always</h3>
+              <p>Raiders, Mythic+ pushers, socials, casuals, and people who like hanging out in Discord</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="section-inner fit-strip" aria-labelledby="fitTitle">
+          <div class="fit-title">
+            <p class="section-kicker">Good fit</p>
+            <h3 id="fitTitle">What We Look For</h3>
+          </div>
+          <div class="fit-grid-home">
+            <article>
+              <h3>Prepared</h3>
+              <p>Show up on time, know the fights, bring your raid kit, and keep your character ready.</p>
+            </article>
+            <article>
+              <h3>Communicative</h3>
+              <p>Use Discord, answer signups, speak up when you need help, and keep officers posted.</p>
+            </article>
+            <article>
+              <h3>Coachable</h3>
+              <p>Take feedback well, review logs when needed, and keep improving without drama.</p>
+            </article>
+            <article>
+              <h3>Consistent</h3>
+              <p>Reliable raiders matter. Make raid nights regularly and give early notice when real life wins.</p>
+            </article>
+            <article>
+              <h3>Team-minded</h3>
+              <p>Respect loot council, help with mechanics, and care about clean kills more than personal meters.</p>
+            </article>
+            <article>
+              <h3>Community fit</h3>
+              <p>Bring a good attitude. Epic Chaos is social, Discord-active, and built as a steady guild home.</p>
             </article>
           </div>
         </div>
