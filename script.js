@@ -176,8 +176,58 @@ const requirementButtons = [...document.querySelectorAll("[data-requirement-tab]
 const reportsList = document.querySelector("#reportsList");
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector("#siteNav");
+const sectionLinks = [...document.querySelectorAll("[data-scroll-target]")];
+const sectionTargetStoreKey = "epicChaosScrollTarget";
 
 let activeRole = "all";
+
+function cleanIndexPath() {
+  if (window.location.pathname.endsWith("/index.html") && !window.location.hash) {
+    window.history.replaceState(null, "", "/");
+  }
+}
+
+function scrollToHomeSection(target) {
+  const section = document.getElementById(target);
+  if (!section) {
+    return false;
+  }
+
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+  window.history.replaceState(null, "", "/");
+  return true;
+}
+
+function handleStoredSectionTarget() {
+  const target = window.sessionStorage.getItem(sectionTargetStoreKey) || window.location.hash.slice(1);
+  if (!target) {
+    return;
+  }
+
+  window.sessionStorage.removeItem(sectionTargetStoreKey);
+  window.requestAnimationFrame(() => {
+    window.setTimeout(() => {
+      scrollToHomeSection(target);
+    }, 40);
+  });
+}
+
+sectionLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = link.dataset.scrollTarget;
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+    if (!scrollToHomeSection(target)) {
+      window.sessionStorage.setItem(sectionTargetStoreKey, target);
+      window.location.href = "/";
+    }
+  });
+});
+
+cleanIndexPath();
 
 function getFilteredRoster() {
   if (!rosterSearch) {
@@ -355,6 +405,7 @@ renderRoster();
 renderReports();
 startReportsAutoRefresh();
 renderRequirements("rules");
+handleStoredSectionTarget();
 
 if (window.lucide) {
   window.lucide.createIcons();

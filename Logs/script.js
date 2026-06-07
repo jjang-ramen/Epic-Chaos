@@ -12,11 +12,30 @@ const reportsRefreshMs = 5 * 60 * 1000;
 const reportsList = document.querySelector("#reportsList");
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector("#siteNav");
+const sectionLinks = [...document.querySelectorAll("[data-scroll-target]")];
+const sectionTargetStoreKey = "epicChaosScrollTarget";
+
+if (window.location.pathname.endsWith("/Logs/index.html")) {
+  window.history.replaceState(null, "", "/Logs/");
+}
 
 const escapeHtml = (value) =>
   String(value).replace(/[&<>"']/g, (char) => (
     { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]
   ));
+
+sectionLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = link.dataset.scrollTarget;
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+    window.sessionStorage.setItem(sectionTargetStoreKey, target);
+    window.location.href = "/";
+  });
+});
 
 function renderReports() {
   if (!reportsList) {

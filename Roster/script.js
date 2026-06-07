@@ -58,9 +58,15 @@ const mythicSummary = document.querySelector("#mythicSummary");
 const heroicSummary = document.querySelector("#heroicSummary");
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector("#siteNav");
+const sectionLinks = [...document.querySelectorAll("[data-scroll-target]")];
+const sectionTargetStoreKey = "epicChaosScrollTarget";
 
 let activeTeam = "all";
 let activeRole = "all";
+
+if (window.location.pathname.endsWith("/Roster/index.html")) {
+  window.history.replaceState(null, "", "/Roster/");
+}
 
 const slugClass = (value) => `class-${value.toLowerCase().replace(/\s+/g, "-")}`;
 const formatIlvl = (value) => Number.isInteger(value) ? value : value.toFixed(2);
@@ -68,6 +74,19 @@ const escapeHtml = (value) =>
   String(value).replace(/[&<>"']/g, (char) => (
     { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]
   ));
+
+sectionLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = link.dataset.scrollTarget;
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+    window.sessionStorage.setItem(sectionTargetStoreKey, target);
+    window.location.href = "/";
+  });
+});
 
 function average(players) {
   if (!players.length) {
