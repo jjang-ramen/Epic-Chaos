@@ -34,6 +34,7 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -734,10 +735,9 @@ main > section::before {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
   z-index: -1;
-  width: 100vw;
-  transform: translateX(-50%);
   border-block: 1px solid rgba(232, 76, 62, 0.16);
 }
 
