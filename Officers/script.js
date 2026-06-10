@@ -1,6 +1,7 @@
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector("#siteNav");
 const sectionLinks = [...document.querySelectorAll("[data-scroll-target]")];
+const backTopButton = document.querySelector(".back-top");
 const sectionTargetStoreKey = "epicChaosScrollTarget";
 
 if (window.location.pathname.endsWith("/Officers/index.html")) {
@@ -31,6 +32,13 @@ if (navToggle && siteNav) {
       siteNav.classList.remove("is-open");
       navToggle.setAttribute("aria-expanded", "false");
     }
+  });
+}
+
+if (backTopButton) {
+  backTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.replaceState(null, "", window.location.pathname);
   });
 }
 

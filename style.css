@@ -190,18 +190,23 @@ h3 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.18rem;
 }
 
 .nav-links a {
   min-height: 38px;
   display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
   border-radius: 6px;
   padding: 0 0.72rem;
+  border: 0;
+  background: transparent;
   color: #dfd5bf;
+  font: inherit;
   font-size: 0.92rem;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .nav-links a:hover,
@@ -209,6 +214,22 @@ h3 {
   background: rgba(232, 76, 62, 0.16);
   color: #fff8e6;
   outline: none;
+}
+
+.nav-links a[aria-current="page"] {
+  background: rgba(198, 120, 63, 0.16);
+  color: #fff8e6;
+}
+
+.nav-links .nav-cta {
+  margin-left: 0.18rem;
+  color: #fff8e6;
+  font-weight: 800;
+}
+
+.nav-links .nav-cta:hover,
+.nav-links .nav-cta:focus-visible {
+  background: rgba(232, 76, 62, 0.16);
 }
 
 .icon-button {
@@ -1374,16 +1395,52 @@ main > section.roster-controls-section {
 }
 
 .site-footer {
-  border-top: 1px solid var(--line);
-  padding: 1.2rem 1rem;
-  background: var(--deep);
-  color: #a9a08d;
-  text-align: center;
-  font-size: 0.88rem;
+  min-height: 34px;
+  background: rgba(5, 4, 4, 0.94);
 }
 
-.site-footer p {
-  margin-bottom: 0;
+.back-top-wrap {
+  width: 100%;
+  margin: 0;
+  padding: 0.65rem 1rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid rgba(232, 76, 62, 0.14);
+  background: rgba(5, 4, 4, 0.94);
+}
+
+.back-top {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(232, 76, 62, 0.28);
+  border-radius: 6px;
+  padding: 0 0.8rem;
+  background:
+    linear-gradient(135deg, rgba(232, 76, 62, 0.12), rgba(198, 120, 63, 0.08)),
+    rgba(5, 4, 4, 0.88);
+  color: #fff8e6;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+.back-top:hover,
+.back-top:focus-visible {
+  background:
+    linear-gradient(135deg, rgba(232, 76, 62, 0.24), rgba(198, 120, 63, 0.14)),
+    rgba(5, 4, 4, 0.94);
+  outline: none;
+}
+
+.back-top svg {
+  width: 17px;
+  height: 17px;
+  color: var(--gold-bright);
 }
 
 @media (max-width: 1020px) {
@@ -1437,10 +1494,15 @@ main > section.roster-controls-section {
 
   .nav-links.is-open {
     display: grid;
+    gap: 0.25rem;
   }
 
   .nav-links a {
     min-height: 44px;
+  }
+
+  .back-top-wrap {
+    justify-content: center;
   }
 
   .hero {

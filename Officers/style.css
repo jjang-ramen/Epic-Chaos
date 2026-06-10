@@ -106,11 +106,11 @@
 }
 
 .officer-dragons img {
-  transform: scale(1.16);
+  transform: scale(1.04);
 }
 
 .officer-dragons:hover img {
-  transform: scale(1.19);
+  transform: scale(1.07);
 }
 
 .officer-card::before,
