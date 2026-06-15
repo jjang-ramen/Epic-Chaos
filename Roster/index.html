@@ -11,9 +11,9 @@
     <link rel="icon" type="image/png" href="../assets/epic-chaos-logo-v5.png">
     <link rel="apple-touch-icon" href="../assets/epic-chaos-logo-v5.png">
     <link rel="stylesheet" href="../style.css?v=26">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=7">
     <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
-    <script defer src="script.js?v=8"></script>
+    <script defer src="script.js?v=11"></script>
   </head>
   <body class="roster-page">
     <a class="skip-link" href="#content">Skip to content</a>
@@ -50,8 +50,8 @@
           <p class="eyebrow">Epic Chaos raid teams</p>
           <h1 id="rosterPageTitle">Raid Roster</h1>
           <p class="lead">
-            Mythic Team and Heroic Team are separated here so the homepage can stay focused.
-            Heroic Team sheet order values are not shown.
+            Mythic Team and Heroic Team are pulled from the guild Google Sheets when available.
+            If a sheet cannot be reached, the page falls back to the last local roster.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="/">
@@ -65,7 +65,9 @@
           </div>
         </div>
 
-        <div class="roster-dashboard" id="rosterDashboard" aria-label="Roster summary"></div>
+        <div class="roster-dashboard-wrap" aria-label="Roster summary">
+          <div class="roster-dashboard" id="rosterDashboard"></div>
+        </div>
       </section>
 
       <section class="section roster-controls-section" aria-label="Roster controls">
@@ -96,7 +98,7 @@
             <div>
               <p class="section-kicker">Warcraft Logs composition</p>
               <h2 id="mythicTitle">Mythic Team</h2>
-              <p>Tanks 2, healers 5, DPS 17. Item levels are from the current Mythic roster snapshot.</p>
+              <p>Live from the Mythic Team sheet when available. Status, spec, class, and item level update from Google Sheets.</p>
             </div>
             <div class="team-summary" id="mythicSummary"></div>
           </div>
@@ -110,7 +112,7 @@
             <div>
               <p class="section-kicker">Current sheet roster</p>
               <h2 id="heroicTitle">Heroic Team</h2>
-              <p>Current Heroic Team members from the sheet screenshot. Sheet order values are intentionally left out.</p>
+              <p>Live from the Heroic Team sheet when available. Sheet order values are intentionally left out.</p>
             </div>
             <div class="team-summary" id="heroicSummary"></div>
           </div>

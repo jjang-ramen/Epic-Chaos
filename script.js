@@ -34,6 +34,8 @@ let reports = [
 
 const reportsFeedUrl = window.EPIC_CHAOS_REPORTS_ENDPOINT || "reports.json";
 const reportsRefreshMs = 5 * 60 * 1000;
+const mythicRosterSheetUrl = "https://docs.google.com/spreadsheets/d/1-JUltdNITIDbBtviVhCxhUuo4glFY3qrgUVsQf5-2sw/gviz/tq";
+const sheetCountRefreshMs = 5 * 60 * 1000;
 
 const requirements = {
   rules: [
@@ -160,6 +162,7 @@ const roleLabels = {
 };
 
 const slugClass = (value) => `class-${value.toLowerCase().replace(/\s+/g, "-")}`;
+const cleanCell = (value) => String(value || "").trim();
 
 const escapeHtml = (value) =>
   String(value).replace(/[&<>"']/g, (char) => (
@@ -169,6 +172,7 @@ const escapeHtml = (value) =>
 const rosterGrid = document.querySelector("#rosterGrid");
 const rosterSummary = document.querySelector("#rosterSummary");
 const rosterSearch = document.querySelector("#rosterSearch");
+const mythicRosterCount = document.querySelector("#mythicRosterCount");
 const roleButtons = [...document.querySelectorAll("[data-role-filter]")];
 const requirementPanel = document.querySelector("#requirementPanel");
 const requirementButtons = [...document.querySelectorAll("[data-requirement-tab]")];
@@ -278,6 +282,97 @@ function renderRoster() {
       </div>
     </article>
   `).join("");
+}
+
+function parseSheetCsv(text) {
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let quoted = false;
+
+  for (let index = 0; index < text.length; index += 1) {
+    const char = text[index];
+    const next = text[index + 1];
+
+    if (char === '"') {
+      if (quoted && next === '"') {
+        cell += '"';
+        index += 1;
+      } else {
+        quoted = !quoted;
+      }
+      continue;
+    }
+
+    if (char === "," && !quoted) {
+      row.push(cell);
+      cell = "";
+      continue;
+    }
+
+    if ((char === "\n" || char === "\r") && !quoted) {
+      if (char === "\r" && next === "\n") {
+        index += 1;
+      }
+      row.push(cell);
+      rows.push(row);
+      row = [];
+      cell = "";
+      continue;
+    }
+
+    cell += char;
+  }
+
+  if (cell || row.length) {
+    row.push(cell);
+    rows.push(row);
+  }
+
+  return rows;
+}
+
+function countRosterRowsFromCsv(csv) {
+  return parseSheetCsv(csv).filter((row) => {
+    const name = cleanCell(row[0]);
+    const status = cleanCell(row[3]);
+    const className = cleanCell(row[5]);
+    const ilvl = Number.parseFloat(cleanCell(row[7]).replace(/,/g, ""));
+
+    return name && status && className && Number.isFinite(ilvl) && status.toLowerCase() !== "rank";
+  }).length;
+}
+
+async function updateMythicRosterCount() {
+  if (!mythicRosterCount) {
+    return;
+  }
+
+  try {
+    const params = new URLSearchParams({
+      tqx: "out:csv",
+      gid: "0",
+      cache: String(Date.now())
+    });
+    const response = await fetch(`${mythicRosterSheetUrl}?${params.toString()}`, { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error(`Mythic roster sheet returned ${response.status}`);
+    }
+
+    const count = countRosterRowsFromCsv(await response.text());
+
+    if (count > 0) {
+      mythicRosterCount.textContent = String(count);
+    }
+  } catch (error) {
+    mythicRosterCount.textContent = String(roster.length);
+  }
+}
+
+function startSheetCountRefresh() {
+  updateMythicRosterCount();
+  window.setInterval(updateMythicRosterCount, sheetCountRefreshMs);
 }
 
 function renderRequirements(key) {
@@ -409,6 +504,7 @@ if (backTopButton) {
 }
 
 renderRoster();
+startSheetCountRefresh();
 renderReports();
 startReportsAutoRefresh();
 renderRequirements("rules");

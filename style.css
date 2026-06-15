@@ -913,6 +913,8 @@ main > section.roster-controls-section {
 
 .band-recruitment .need-card {
   min-height: 168px;
+  display: grid;
+  align-content: start;
   background:
     linear-gradient(145deg, rgba(232, 76, 62, 0.12), rgba(63, 143, 134, 0.045)),
     rgba(255, 255, 255, 0.055);
@@ -921,6 +923,85 @@ main > section.roster-controls-section {
 .band-recruitment .need-card p {
   color: #f1d8c8;
   line-height: 1.55;
+}
+
+.recruit-list {
+  display: grid;
+  gap: 0.58rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recruit-need {
+  min-width: 0;
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-items: center;
+  gap: 0.62rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  padding: 0.38rem 0.46rem;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--class, #f0b86d) 18%, transparent), transparent 72%),
+    rgba(0, 0, 0, 0.2);
+}
+
+.recruit-need img {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.recruit-need span {
+  min-width: 0;
+  display: grid;
+  gap: 0.05rem;
+}
+
+.recruit-need b {
+  overflow-wrap: anywhere;
+  color: var(--class, #ffd2ce);
+  font-size: 0.94rem;
+  line-height: 1.12;
+}
+
+.recruit-need em {
+  color: #f4dccd;
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 750;
+  line-height: 1.18;
+}
+
+.recruit-openings {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.85rem 0 0.7rem;
+  border: 1px solid rgba(63, 143, 134, 0.38);
+  border-radius: 6px;
+  padding: 0.72rem;
+  background:
+    linear-gradient(135deg, rgba(63, 143, 134, 0.16), rgba(232, 76, 62, 0.08)),
+    rgba(0, 0, 0, 0.22);
+}
+
+.recruit-openings strong {
+  color: #ffe0ae;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.35rem;
+  line-height: 0.95;
+}
+
+.recruit-openings span {
+  color: #f7e6da;
+  font-size: 0.9rem;
+  font-weight: 850;
+  line-height: 1.25;
 }
 
 .fit-strip {
@@ -1172,6 +1253,7 @@ main > section.roster-controls-section {
 .class-death-knight { --class: #c41e3a; }
 .class-demon-hunter { --class: #a330c9; }
 .class-druid { --class: #ff7c0a; }
+.class-evoker { --class: #33937f; }
 .class-hunter { --class: #aad372; }
 .class-mage { --class: #3fc7eb; }
 .class-monk { --class: #00ff98; }
