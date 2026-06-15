@@ -58,7 +58,7 @@ function renderReports() {
 
 function getReportMeta(report) {
   const details = [report.owner && `Logged by ${report.owner}`, report.date].filter(Boolean);
-  return details.join(" · ") || "Warcraft Logs";
+  return details.join(" / ") || "Warcraft Logs";
 }
 
 function normalizeReport(report) {

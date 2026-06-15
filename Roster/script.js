@@ -397,16 +397,16 @@ async function syncSheetRosters() {
   }).format(new Date());
 
   if (!failed.length) {
-    setSheetStatus(`Live Google Sheets roster synced at ${time}. Refreshes every 5 minutes.`, "ok");
+    setSheetStatus(`Roster synced at ${time}. Refreshes every 5 minutes.`, "ok");
     return;
   }
 
   if (failed.length < 2) {
-    setSheetStatus(`Partial sync at ${time}. Using local fallback for ${failed.join(", ")}.`, "warning");
+    setSheetStatus(`Partial sync at ${time}. Showing local fallback data for ${failed.join(", ")}.`, "warning");
     return;
   }
 
-  setSheetStatus("Could not reach Google Sheets. Showing the local fallback roster.", "warning");
+  setSheetStatus("Could not reach Google Sheets. Showing the local roster.", "warning");
 }
 
 function setActiveButton(buttons, selectedButton, attribute) {

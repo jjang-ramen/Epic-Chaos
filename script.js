@@ -24,12 +24,12 @@ const roster = [
 ];
 
 let reports = [
-  { title: "Heroic", owner: "Skaidi", url: "https://www.warcraftlogs.com/reports/QMnCzTFt3GvLxYRa" },
-  { title: "May 30, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/NM3wxZPCmbL72yfY" },
-  { title: "May 29, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/2jpDn36qGAxkcHLR" },
-  { title: "May 27, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/hgjTDQJwZAR1qzBX" },
-  { title: "May 27, 2026", owner: "Skaidi", url: "https://www.warcraftlogs.com/reports/f8XNhpA2bvWZqyDL" },
-  { title: "May 23, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/FQmJdk4WMwTY8nv7" }
+  { title: "6/13/26", owner: "Ceriwyn", date: "June 14, 2026", duration: "3 hours", url: "https://www.warcraftlogs.com/reports/d9JNnxW6C2Av8DBF" },
+  { title: "6/12/26", owner: "Ceriwyn", date: "June 13, 2026", duration: "3 hours", url: "https://www.warcraftlogs.com/reports/A2JxVbDXBn9RzfP4" },
+  { title: "6/12/26", owner: "Ceriwyn", date: "June 13, 2026", duration: "a few seconds", url: "https://www.warcraftlogs.com/reports/6NVjQ1tAxbJmPaRw" },
+  { title: "6/10", owner: "Skaidi", date: "June 11, 2026", duration: "2 hours", url: "https://www.warcraftlogs.com/reports/Qr6RN9FzD4JmgpVd" },
+  { title: "Unknown Zone", owner: "Jessicamayberry33", date: "June 7, 2026", duration: "a few seconds", url: "https://www.warcraftlogs.com/reports/4CAQry37GLp9BMD1" },
+  { title: "6/6/26", owner: "Ceriwyn", date: "June 7, 2026", duration: "3 hours", url: "https://www.warcraftlogs.com/reports/amjdCz2Lcg4AwJ7N" }
 ];
 
 const reportsFeedUrl = window.EPIC_CHAOS_REPORTS_ENDPOINT || "reports.json";
@@ -45,14 +45,14 @@ const requirements = {
         "Invites start 15 minutes early.",
         "Be at the raid entrance 10 minutes early with everything you need.",
         "Sign up to raids in a timely manner.",
-        "Attend all raider meetings."
+        "Join raid meetings when called."
       ]
     },
     {
       title: "Conduct",
       items: [
         "Be respectful to each other.",
-        "No negativity during raid and no blame game.",
+        "Keep criticism useful and solve problems without blaming people.",
         "Do not talk over the raid lead or fight explanations.",
         "Communicate needs, wants, late arrivals, and absences."
       ]
@@ -63,7 +63,7 @@ const requirements = {
         "Loot council is used.",
         "Be fully gemmed and fully enchanted.",
         "Watch guides and know the fights before raid night.",
-        "Pull the DPS or HPS needed to kill the boss."
+        "Meet the throughput checks needed for your role."
       ]
     }
   ],
@@ -74,16 +74,16 @@ const requirements = {
         "Mythic team runs Friday and Saturday, 9:00 PM - 12:00 AM EST.",
         "Cutting Edge is the end goal.",
         "Two Mythic+ vault slots per week, in addition to raid slots.",
-        "Run Mythic+ with other raiders before pugging away."
+        "Prioritize guild groups for keys when you can."
       ]
     },
     {
       title: "Raid standard",
       items: [
         "Fully gemmed and enchanted.",
-        "Mechanically sound over tunnel vision.",
+        "Mechanics come before personal meters.",
         "Able to take constructive criticism.",
-        "Drive to constantly improve."
+        "Come ready to improve week to week."
       ]
     },
     {
@@ -102,7 +102,7 @@ const requirements = {
       items: [
         "Heroic/AOTC team runs Wednesday, 8:00 PM - 10:00 PM EST.",
         "At least one +8 Mythic+ in your vault per week.",
-        "Be ready for Heroic progression without making it a job.",
+        "Be ready for Heroic progression at a steady, low-drama pace.",
       ]
     },
     {
@@ -128,10 +128,10 @@ const requirements = {
     {
       title: "Consumables",
       items: [
-        "Pots.",
-        "Flask.",
+        "Combat potions.",
+        "Flask or phial.",
         "Health potions.",
-        "Personal food."
+        "Personal food or feasts."
       ]
     },
     {
@@ -398,16 +398,23 @@ function renderReports() {
   reportsList.innerHTML = reports.map((report) => `
     <a class="report-row" href="${report.url}">
       <strong>${escapeHtml(report.title)}</strong>
-      <span>Logged by ${escapeHtml(report.owner)}</span>
-      <small>Open log</small>
+      <span>${escapeHtml(getReportMeta(report))}</span>
+      <small>${escapeHtml(report.duration || "Open log")}</small>
     </a>
   `).join("");
+}
+
+function getReportMeta(report) {
+  const details = [report.owner && `Logged by ${report.owner}`, report.date].filter(Boolean);
+  return details.join(" / ") || "Warcraft Logs";
 }
 
 function normalizeReport(report) {
   return {
     title: report.title || report.name || report.label || "Warcraft Logs report",
     owner: report.owner || report.uploader || report.userName || "Warcraft Logs",
+    date: report.date || report.start || report.startDate || "",
+    duration: report.duration || "",
     url: report.url || (report.code ? `https://www.warcraftlogs.com/reports/${report.code}` : "https://www.warcraftlogs.com/guild/reports-list/709946")
   };
 }
