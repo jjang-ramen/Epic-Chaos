@@ -146,6 +146,11 @@
   color: var(--gold-bright);
 }
 
+.player-card.class-evoker p {
+  color: var(--class);
+  font-weight: 800;
+}
+
 .player-card header > div {
   min-width: 0;
 }
