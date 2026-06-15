@@ -1,13 +1,17 @@
 let reports = [
-  { title: "Heroic", owner: "Skaidi", url: "https://www.warcraftlogs.com/reports/QMnCzTFt3GvLxYRa" },
-  { title: "May 30, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/NM3wxZPCmbL72yfY" },
-  { title: "May 29, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/2jpDn36qGAxkcHLR" },
-  { title: "May 27, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/hgjTDQJwZAR1qzBX" },
-  { title: "May 27, 2026", owner: "Skaidi", url: "https://www.warcraftlogs.com/reports/f8XNhpA2bvWZqyDL" },
-  { title: "May 23, 2026", owner: "Ceriwyn", url: "https://www.warcraftlogs.com/reports/FQmJdk4WMwTY8nv7" }
+  { title: "6/13/26", owner: "Ceriwyn", date: "June 14, 2026", duration: "3 hours", url: "https://www.warcraftlogs.com/reports/d9JNnxW6C2Av8DBF" },
+  { title: "6/12/26", owner: "Ceriwyn", date: "June 13, 2026", duration: "3 hours", url: "https://www.warcraftlogs.com/reports/A2JxVbDXBn9RzfP4" },
+  { title: "6/12/26", owner: "Ceriwyn", date: "June 13, 2026", duration: "a few seconds", url: "https://www.warcraftlogs.com/reports/6NVjQ1tAxbJmPaRw" },
+  { title: "6/10", owner: "Skaidi", date: "June 11, 2026", duration: "2 hours", url: "https://www.warcraftlogs.com/reports/Qr6RN9FzD4JmgpVd" },
+  { title: "Unknown Zone", owner: "Jessicamayberry33", date: "June 7, 2026", duration: "a few seconds", url: "https://www.warcraftlogs.com/reports/4CAQry37GLp9BMD1" },
+  { title: "6/6/26", owner: "Ceriwyn", date: "June 7, 2026", duration: "3 hours", url: "https://www.warcraftlogs.com/reports/amjdCz2Lcg4AwJ7N" }
 ];
 
-const reportsFeedUrl = window.EPIC_CHAOS_REPORTS_ENDPOINT || "../reports.json";
+const warcraftLogsReportsUrl = "https://www.warcraftlogs.com/guild/reports-list/709946";
+const warcraftLogsReaderUrl = `https://r.jina.ai/http://r.jina.ai/http://${warcraftLogsReportsUrl}`;
+const reportsFeedUrls = window.EPIC_CHAOS_REPORTS_ENDPOINT
+  ? [window.EPIC_CHAOS_REPORTS_ENDPOINT, warcraftLogsReaderUrl, "../reports.json"]
+  : [warcraftLogsReaderUrl, "../reports.json"];
 const reportsRefreshMs = 5 * 60 * 1000;
 const reportsList = document.querySelector("#reportsList");
 const navToggle = document.querySelector(".nav-toggle");
@@ -46,22 +50,78 @@ function renderReports() {
   reportsList.innerHTML = reports.map((report) => `
     <a class="report-row" href="${report.url}">
       <strong>${escapeHtml(report.title)}</strong>
-      <span>Logged by ${escapeHtml(report.owner)}</span>
-      <small>Open log</small>
+      <span>${escapeHtml(getReportMeta(report))}</span>
+      <small>${escapeHtml(report.duration || "Open log")}</small>
     </a>
   `).join("");
+}
+
+function getReportMeta(report) {
+  const details = [report.owner && `Logged by ${report.owner}`, report.date].filter(Boolean);
+  return details.join(" · ") || "Warcraft Logs";
 }
 
 function normalizeReport(report) {
   return {
     title: report.title || report.name || report.label || "Warcraft Logs report",
     owner: report.owner || report.uploader || report.userName || "Warcraft Logs",
-    url: report.url || (report.code ? `https://www.warcraftlogs.com/reports/${report.code}` : "https://www.warcraftlogs.com/guild/reports-list/709946")
+    date: report.date || report.start || report.startDate || "",
+    duration: report.duration || "",
+    url: report.url || (report.code ? `https://www.warcraftlogs.com/reports/${report.code}` : warcraftLogsReportsUrl)
   };
 }
 
+function decodeMarkdownText(value) {
+  return String(value || "")
+    .replace(/\\\|/g, "|")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .trim();
+}
+
+function parseWarcraftLogsReports(markdown) {
+  const reportRows = [];
+  const rowPattern = /\|\s*\[([^\]]+)\]\((https:\/\/www\.warcraftlogs\.com\/reports\/[A-Za-z0-9]+)\)\s*\|\s*([^|]+)\|\s*([^|]*)\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|/g;
+  let match = rowPattern.exec(markdown);
+
+  while (match) {
+    const [, title, url, owner, , date, duration, visibility] = match;
+    if (visibility.trim().toLowerCase() === "public") {
+      reportRows.push(normalizeReport({
+        title: decodeMarkdownText(title),
+        owner: decodeMarkdownText(owner),
+        date: decodeMarkdownText(date).replace(/\s+\d{1,2}:\d{2}\s+[AP]M$/i, ""),
+        duration: decodeMarkdownText(duration),
+        url
+      }));
+    }
+
+    match = rowPattern.exec(markdown);
+  }
+
+  return reportRows;
+}
+
+function parseReportsPayload(rawText) {
+  const text = rawText.trim();
+  if (!text) {
+    return [];
+  }
+
+  if (text.startsWith("{") || text.startsWith("[")) {
+    const payload = JSON.parse(text);
+    const nextReports = Array.isArray(payload) ? payload : payload.reports;
+    return Array.isArray(nextReports) ? nextReports.map(normalizeReport) : [];
+  }
+
+  return parseWarcraftLogsReports(text);
+}
+
 async function refreshReportsFromFeed() {
-  if (!reportsList || !reportsFeedUrl) {
+  if (!reportsList || !reportsFeedUrls.length) {
     return;
   }
 
@@ -69,16 +129,22 @@ async function refreshReportsFromFeed() {
   reportsPanel?.classList.add("is-updating");
 
   try {
-    const response = await fetch(reportsFeedUrl, { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(`Reports feed returned ${response.status}`);
-    }
+    for (const feedUrl of reportsFeedUrls) {
+      try {
+        const response = await fetch(feedUrl, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`Reports feed returned ${response.status}`);
+        }
 
-    const payload = await response.json();
-    const nextReports = Array.isArray(payload) ? payload : payload.reports;
-    if (Array.isArray(nextReports) && nextReports.length) {
-      reports = nextReports.map(normalizeReport).slice(0, 6);
-      renderReports();
+        const nextReports = parseReportsPayload(await response.text());
+        if (nextReports.length) {
+          reports = nextReports.slice(0, 6);
+          renderReports();
+          return;
+        }
+      } catch {
+        // Try the next source, then keep baked-in reports if every feed is unavailable.
+      }
     }
   } catch {
     // Keep the baked-in reports if the live feed is unavailable.
