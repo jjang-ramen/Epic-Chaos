@@ -75,13 +75,13 @@
 
 .officer-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.85rem, 1.4vw, 1.15rem);
 }
 
 .officer-card {
   position: relative;
-  height: 470px;
+  height: 510px;
   overflow: hidden;
   border: 1px solid rgba(232, 76, 62, 0.32);
   border-radius: var(--radius);
