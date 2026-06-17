@@ -63,10 +63,10 @@ function getReportMeta(report) {
 
 function normalizeReport(report) {
   return {
-    title: report.title || report.name || report.label || "Warcraft Logs report",
-    owner: report.owner || report.uploader || report.userName || "Warcraft Logs",
-    date: report.date || report.start || report.startDate || "",
-    duration: report.duration || "",
+    title: cleanReportCell(report.title || report.name || report.label || "Warcraft Logs report"),
+    owner: cleanReportCell(report.owner || report.uploader || report.userName || "Warcraft Logs"),
+    date: cleanReportDate(report.date || report.start || report.startDate || ""),
+    duration: cleanReportCell(report.duration || ""),
     url: report.url || (report.code ? `https://www.warcraftlogs.com/reports/${report.code}` : warcraftLogsReportsUrl)
   };
 }
@@ -82,6 +82,17 @@ function decodeMarkdownText(value) {
     .trim();
 }
 
+function cleanReportCell(value) {
+  return decodeMarkdownText(value)
+    .replace(/^\d+\$/, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function cleanReportDate(value) {
+  return cleanReportCell(value).replace(/\s+\d{1,2}:\d{2}\s+[AP]M$/i, "");
+}
+
 function parseWarcraftLogsReports(markdown) {
   const reportRows = [];
   const rowPattern = /\|\s*\[([^\]]+)\]\((https:\/\/www\.warcraftlogs\.com\/reports\/[A-Za-z0-9]+)\)\s*\|\s*([^|]+)\|\s*([^|]*)\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|/g;
@@ -89,12 +100,12 @@ function parseWarcraftLogsReports(markdown) {
 
   while (match) {
     const [, title, url, owner, , date, duration, visibility] = match;
-    if (visibility.trim().toLowerCase() === "public") {
+    if (cleanReportCell(visibility).toLowerCase() === "public") {
       reportRows.push(normalizeReport({
-        title: decodeMarkdownText(title),
-        owner: decodeMarkdownText(owner),
-        date: decodeMarkdownText(date).replace(/\s+\d{1,2}:\d{2}\s+[AP]M$/i, ""),
-        duration: decodeMarkdownText(duration),
+        title,
+        owner,
+        date,
+        duration,
         url
       }));
     }
