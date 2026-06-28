@@ -245,6 +245,7 @@ h3 {
 }
 
 .hero {
+  min-height: calc(100svh - var(--header));
   padding: clamp(1.4rem, 3vw, 2.3rem) 0 clamp(1.1rem, 2.4vw, 1.8rem);
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
@@ -282,6 +283,47 @@ h3 {
   color: #ded7c7;
   font-size: clamp(1.1rem, 2vw, 1.34rem);
   line-height: 1.55;
+}
+
+.hero-focus {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  max-width: 760px;
+  margin: 0 0 1.25rem;
+}
+
+.hero-focus article {
+  min-height: 104px;
+  display: grid;
+  align-content: center;
+  gap: 0.18rem;
+  border: 1px solid rgba(240, 184, 109, 0.22);
+  border-radius: 6px;
+  padding: 0.85rem 0.9rem;
+  background:
+    linear-gradient(135deg, rgba(232, 76, 62, 0.105), rgba(63, 143, 134, 0.055)),
+    rgba(255, 255, 255, 0.035);
+  box-shadow: inset 3px 0 0 rgba(240, 184, 109, 0.42);
+}
+
+.hero-focus span {
+  color: var(--gold-bright);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.hero-focus strong {
+  color: #fff7ef;
+  font-size: clamp(1.05rem, 1.8vw, 1.36rem);
+  line-height: 1.12;
+}
+
+.hero-focus small {
+  color: #d8c8b8;
+  font-weight: 800;
 }
 
 .leader-strip,
@@ -1588,7 +1630,12 @@ main > section.roster-controls-section {
   }
 
   .hero {
+    min-height: auto;
     padding-top: 2.4rem;
+  }
+
+  .hero-focus {
+    grid-template-columns: 1fr;
   }
 
   .hero-copy::before {

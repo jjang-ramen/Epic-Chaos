@@ -10,8 +10,8 @@
     >
     <link rel="icon" type="image/png" href="../assets/epic-chaos-logo-v5.png">
     <link rel="apple-touch-icon" href="../assets/epic-chaos-logo-v5.png">
-    <link rel="stylesheet" href="../style.css?v=28">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="../style.css?v=30">
+    <link rel="stylesheet" href="style.css?v=3">
     <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
     <script defer src="script.js?v=9"></script>
   </head>
@@ -36,11 +36,8 @@
           <a href="/">Home</a>
           <a href="/Roster/">Roster</a>
           <a href="/Officers/">Officers</a>
-          <a href="/Armory/">Armory</a>
           <a href="/Logs/" aria-current="page">Logs</a>
-          <a href="/Kill-Team/">CE Logs</a>
           <a class="nav-cta" href="/#recruitment" data-scroll-target="recruitment">Recruitment</a>
-          <a href="/#requirements" data-scroll-target="requirements">Rules</a>
           <a href="/#contact" data-scroll-target="contact">Contact</a>
         </div>
       </nav>
@@ -52,20 +49,20 @@
           <p class="eyebrow">Warcraft Logs</p>
           <h1 id="logsPageTitle">Raid Logs</h1>
           <p class="lead">
-            Recent public reports, current progress, and quick links for raiders who want to review pulls.
+            Reports, kill videos, and team records in one place.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://www.warcraftlogs.com/guild/us/zuljin/epic%20chaos">
               <i data-lucide="bar-chart-3"></i>
               Warcraft Logs
             </a>
-            <a class="button" href="https://www.warcraftlogs.com/guild/reports-list/709946">
-              <i data-lucide="file-text"></i>
-              All Reports
+            <a class="button" href="/Armory/">
+              <i data-lucide="video"></i>
+              CE Videos
             </a>
             <a class="button ghost" href="/Kill-Team/">
               <i data-lucide="trophy"></i>
-              CE Logs
+              CE Records
             </a>
           </div>
         </div>
@@ -73,7 +70,42 @@
         <div class="log-card">
           <span>Current Progress</span>
           <strong>VS / DR / MQD</strong>
-          <b>6/9 Mythic</b>
+          <b>7/9 Mythic</b>
+        </div>
+      </section>
+
+      <section class="section logs-hub-section" aria-labelledby="logsHubTitle">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Guild archive</p>
+              <h2 id="logsHubTitle">Reports, CE Videos, and CE Records</h2>
+            </div>
+            <p>
+              Kill videos and CE records sit beside the reports here.
+            </p>
+          </div>
+
+          <div class="logs-hub-grid">
+            <a class="logs-hub-card" href="https://www.warcraftlogs.com/guild/reports-list/709946">
+              <i data-lucide="file-text"></i>
+              <span>Warcraft Logs</span>
+              <strong>All Reports</strong>
+              <small>Public reports and pull review.</small>
+            </a>
+            <a class="logs-hub-card" href="/Armory/">
+              <i data-lucide="video"></i>
+              <span>Epic Chaos</span>
+              <strong>CE Videos</strong>
+              <small>Muted kill videos from the current raid archive.</small>
+            </a>
+            <a class="logs-hub-card" href="/Kill-Team/">
+              <i data-lucide="trophy"></i>
+              <span>Void Spire</span>
+              <strong>CE Records</strong>
+              <small>The screenshot and raid team behind the kill.</small>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -89,7 +121,7 @@
             <div class="progress-list">
               <article class="progress-row">
                 <span>VS / DR / MQD</span>
-                <strong>6/9 Mythic</strong>
+                <strong>7/9 Mythic</strong>
                 <small>World 3838 / Region 1172 / Realm 84</small>
               </article>
               <article class="progress-row">
