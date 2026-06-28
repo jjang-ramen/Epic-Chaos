@@ -1,0 +1,309 @@
+.kill-team-page .nav-links a[aria-current="page"] {
+  background: rgba(198, 120, 63, 0.18);
+  color: #fff8e6;
+}
+
+.kill-team-hero {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 5rem) 0 clamp(1.8rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 0.36fr);
+  align-items: center;
+  gap: clamp(1.6rem, 4vw, 3rem);
+}
+
+.kill-team-page h1 {
+  max-width: 900px;
+  font-size: clamp(3.2rem, 7.6vw, 7rem);
+}
+
+.kill-team-page .lead {
+  max-width: 720px;
+}
+
+.glory-seal {
+  min-height: 250px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(240, 184, 109, 0.36);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  background:
+    linear-gradient(145deg, rgba(232, 76, 62, 0.15), rgba(63, 143, 134, 0.08)),
+    rgba(255, 255, 255, 0.045);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.glory-seal img {
+  width: 118px;
+  height: 118px;
+  object-fit: contain;
+  border: 1px solid rgba(232, 76, 62, 0.35);
+  border-radius: 50%;
+  background: #000;
+}
+
+.glory-seal span {
+  margin-top: 0.55rem;
+  color: var(--gold-bright);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.glory-seal strong {
+  color: #fff8f0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  line-height: 1;
+}
+
+.glory-seal small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.team-banner-section {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(2.4rem, 5vw, 4rem) 0;
+}
+
+.team-banner-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(240, 184, 109, 0.28);
+  border-radius: var(--radius);
+  background: #030507;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.46);
+}
+
+.team-banner-frame::before,
+.team-banner-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.team-banner-frame::before {
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.74),
+    inset 0 -140px 120px rgba(0, 0, 0, 0.42);
+}
+
+.team-banner-frame::after {
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(232, 76, 62, 0.18), transparent 22%, transparent 78%, rgba(63, 143, 134, 0.16)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 48%, rgba(0, 0, 0, 0.28));
+}
+
+.team-banner-frame img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1557 / 727;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.04);
+}
+
+.banner-plaque {
+  position: absolute;
+  left: clamp(0.9rem, 3vw, 1.5rem);
+  top: clamp(0.9rem, 3vw, 1.4rem);
+  z-index: 3;
+  max-width: min(520px, calc(100% - 2rem));
+  border: 1px solid rgba(240, 184, 109, 0.34);
+  border-radius: 6px;
+  padding: 0.72rem 0.9rem;
+  background: rgba(5, 4, 4, 0.72);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.38);
+}
+
+.banner-plaque span {
+  color: var(--gold-bright);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.banner-plaque strong {
+  display: block;
+  color: #fff7ef;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1;
+}
+
+.honor-section {
+  padding: clamp(2.4rem, 5vw, 4rem) 0 clamp(3.1rem, 6vw, 5rem);
+}
+
+.raid-frame {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.32fr) minmax(0, 1fr);
+  gap: clamp(1.3rem, 3vw, 2.4rem);
+  align-items: start;
+}
+
+.raid-frame-head {
+  border-left: 3px solid rgba(240, 184, 109, 0.82);
+  padding-left: 1rem;
+}
+
+.raid-frame-head p {
+  margin: 0 0 0.55rem;
+  color: var(--gold-bright);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.raid-frame-head h2 {
+  margin: 0 0 0.55rem;
+  color: #fff7ef;
+  font-size: clamp(2.2rem, 5vw, 4.15rem);
+  line-height: 0.95;
+}
+
+.raid-frame-head span {
+  display: inline-flex;
+  border: 1px solid rgba(240, 184, 109, 0.28);
+  border-radius: 999px;
+  padding: 0.32rem 0.65rem;
+  color: #f7d49a;
+  background: rgba(0, 0, 0, 0.22);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.raid-frame-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 0.95fr 1.8fr;
+  gap: 0.85rem;
+}
+
+.raid-frame-group {
+  min-width: 0;
+}
+
+.raid-frame-group h3 {
+  margin: 0 0 0.45rem;
+  color: #dccfbe;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.raid-frame-group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.38rem;
+}
+
+.dps-group ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.raid-frame-group li {
+  --role-color: #d99b42;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid var(--role-color);
+  border-radius: 5px;
+  padding: 0.42rem 0.55rem 0.42rem 0.62rem;
+  background: rgba(5, 8, 10, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.tank-group li {
+  --role-color: #5f9bea;
+  background: linear-gradient(90deg, rgba(95, 155, 234, 0.18), rgba(5, 8, 10, 0.72) 45%);
+}
+
+.healer-group li {
+  --role-color: #44c36b;
+  background: linear-gradient(90deg, rgba(68, 195, 107, 0.18), rgba(5, 8, 10, 0.72) 45%);
+}
+
+.dps-group li {
+  --role-color: #d68a38;
+  background: linear-gradient(90deg, rgba(214, 138, 56, 0.18), rgba(5, 8, 10, 0.72) 45%);
+}
+
+.raid-frame-group li span {
+  min-width: 0;
+  overflow: hidden;
+  color: #f7efe7;
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.raid-frame-group li small {
+  color: rgba(255, 239, 220, 0.72);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .kill-team-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .raid-frame {
+    grid-template-columns: 1fr;
+  }
+
+  .raid-frame-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dps-group {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .glory-seal {
+    min-height: auto;
+  }
+
+  .team-banner-frame img {
+    min-height: 260px;
+  }
+
+  .raid-frame-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dps-group {
+    grid-column: auto;
+  }
+
+  .dps-group ul {
+    grid-template-columns: 1fr;
+  }
+}
