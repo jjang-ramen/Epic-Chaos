@@ -6,6 +6,7 @@ let mythicRoster = [
   { name: "Nymueh", team: "mythic", role: "healer", className: "Priest", spec: "Holy", realm: "Zul'jin", ilvl: 288 },
   { name: "Garlicnots", team: "mythic", role: "healer", className: "Shaman", spec: "Restoration", realm: "Stormrage", ilvl: 288 },
   { name: "Yiffnoodle", team: "mythic", role: "healer", className: "Shaman", spec: "Restoration", realm: "Emerald Dream", ilvl: 289 },
+  { name: "Slaineight", team: "mythic", role: "healer", className: "Paladin", spec: "Holy", ilvl: 284.13 },
   { name: "Ceriwyn", team: "mythic", role: "dps", className: "Death Knight", spec: "Unholy", realm: "Zul'jin", ilvl: 289 },
   { name: "S\u00edn\u00f3n", team: "mythic", role: "dps", className: "Death Knight", spec: "Unholy", realm: "Tichondrius", ilvl: 289 },
   { name: "Manakar", team: "mythic", role: "dps", className: "Demon Hunter", spec: "Devourer", realm: "Illidan", ilvl: 288 },
@@ -76,6 +77,9 @@ const healerSpecs = new Set([
   "priest:holy",
   "shaman:restoration"
 ]);
+const playerSheetOverrides = {
+  slaineight: { role: "healer", spec: "Holy" }
+};
 
 const dashboard = document.querySelector("#rosterDashboard");
 const searchInput = document.querySelector("#rosterSearch");
@@ -328,13 +332,15 @@ function rosterFromSheetRows(rows, team) {
       const race = cleanCell(row[row.length - 2]);
       const note = cleanCell(row[row.length - 1]);
       const spec = extractSpec(note, className);
+      const override = playerSheetOverrides[name.toLowerCase()];
+      const resolvedSpec = spec || override?.spec || "";
 
       return {
         name,
         team,
-        role: inferRole(className, spec),
+        role: override?.role || inferRole(className, resolvedSpec),
         className,
-        spec,
+        spec: resolvedSpec,
         status,
         race,
         ilvl,

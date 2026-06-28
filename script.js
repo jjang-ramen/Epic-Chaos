@@ -6,6 +6,7 @@ const roster = [
   { name: "Nymueh", role: "healer", className: "Priest", spec: "Holy", realm: "Zul'jin", ilvl: 288 },
   { name: "Garlicnots", role: "healer", className: "Shaman", spec: "Restoration", realm: "Stormrage", ilvl: 288 },
   { name: "Yiffnoodle", role: "healer", className: "Shaman", spec: "Restoration", realm: "Emerald Dream", ilvl: 289 },
+  { name: "Slaineight", role: "healer", className: "Paladin", spec: "Holy", ilvl: 284.13 },
   { name: "Ceriwyn", role: "dps", className: "Death Knight", spec: "Unholy", realm: "Zul'jin", ilvl: 289 },
   { name: "S\u00edn\u00f3n", role: "dps", className: "Death Knight", spec: "Unholy", realm: "Tichondrius", ilvl: 289 },
   { name: "Manakar", role: "dps", className: "Demon Hunter", spec: "Devourer", realm: "Illidan", ilvl: 288 },
