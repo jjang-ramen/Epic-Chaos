@@ -120,29 +120,53 @@
   left: clamp(0.9rem, 3vw, 1.5rem);
   top: clamp(0.9rem, 3vw, 1.4rem);
   z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 0.22rem 1.15rem;
   max-width: min(520px, calc(100% - 2rem));
   border: 1px solid rgba(240, 184, 109, 0.34);
   border-radius: 6px;
-  padding: 0.72rem 0.9rem;
+  padding: 0.9rem 1.1rem 0.92rem;
   background: rgba(5, 4, 4, 0.72);
   backdrop-filter: blur(8px);
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.38);
 }
 
 .banner-plaque span {
+  grid-column: 1;
+  grid-row: 1;
   color: var(--gold-bright);
   font-size: 0.74rem;
   font-weight: 900;
   letter-spacing: 0.12em;
+  line-height: 1;
   text-transform: uppercase;
 }
 
 .banner-plaque strong {
+  grid-column: 1 / -1;
+  grid-row: 2;
   display: block;
+  margin-top: 0.06rem;
   color: #fff7ef;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-size: 2.35rem;
+  line-height: 0.9;
+}
+
+.banner-plaque small {
+  grid-column: 2;
+  grid-row: 1;
+  display: block;
+  margin-top: 0;
+  color: rgba(247, 211, 151, 0.86);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
   line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .honor-section {
