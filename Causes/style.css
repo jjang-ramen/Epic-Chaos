@@ -85,6 +85,13 @@
   gap: clamp(1rem, 2vw, 1.35rem);
 }
 
+.groups-title {
+  max-width: none;
+  font-size: clamp(1.95rem, 3vw, 3rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .awareness-card {
   --org-accent: var(--gold-bright);
   --org-border: rgba(240, 191, 120, 0.34);
@@ -263,4 +270,5 @@
   .awareness-hero h1 {
     font-size: clamp(3.2rem, 16vw, 4.85rem);
   }
+
 }

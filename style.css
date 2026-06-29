@@ -36,10 +36,12 @@
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header) + 18px);
 }
 
 body {
   margin: 0;
+  padding-top: var(--header);
   min-width: 320px;
   overflow-x: hidden;
   background:
@@ -79,6 +81,7 @@ h1,
 h2 {
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing: 0;
+  text-wrap: balance;
 }
 
 h1 {
@@ -92,6 +95,25 @@ h2 {
   margin-bottom: 0.8rem;
   font-size: clamp(2rem, 4vw, 3.4rem);
   line-height: 1.04;
+}
+
+h3,
+.eyebrow,
+.section-kicker {
+  text-wrap: balance;
+}
+
+p,
+.lead,
+.section-head p,
+.recruitment-lead,
+.about-copy p,
+.contact-copy p,
+.need-card p,
+.resource-columns p,
+.report-row span,
+.logs-hub-card small {
+  text-wrap: pretty;
 }
 
 h3 {
@@ -116,13 +138,17 @@ h3 {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 20;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  width: 100%;
   min-height: var(--header);
   background: rgba(5, 4, 4, 0.92);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
 }
 
 .nav-wrap,
@@ -852,6 +878,16 @@ main > section.roster-controls-section {
   max-width: 760px;
   margin-bottom: 1rem;
   font-size: clamp(2.4rem, 5vw, 4.65rem);
+}
+
+.line-keep {
+  white-space: nowrap;
+}
+
+@media (max-width: 440px) {
+  .recruitment-copy h2 {
+    font-size: clamp(1.85rem, 10vw, 2.25rem);
+  }
 }
 
 .recruitment-lead {
