@@ -1,0 +1,266 @@
+.awareness-page .awareness-hero {
+  width: min(var(--max), calc(100% - 32px));
+  min-height: calc(100svh - var(--header));
+  margin: 0 auto;
+  padding: clamp(4.8rem, 8vw, 8.5rem) 0 clamp(3rem, 6vw, 5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 7rem);
+}
+
+.awareness-hero-copy {
+  max-width: 760px;
+  padding-left: clamp(1rem, 3vw, 1.6rem);
+  border-left: 5px solid rgba(232, 76, 62, 0.82);
+  box-shadow: inset 1px 0 rgba(240, 191, 120, 0.36);
+}
+
+.awareness-hero h1 {
+  max-width: 760px;
+  margin: 0.55rem 0 1.35rem;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(3.6rem, 5.6vw, 6.2rem);
+  line-height: 0.94;
+  letter-spacing: 0;
+  text-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+}
+
+.awareness-hero h1 span {
+  display: block;
+}
+
+.awareness-hero .lead {
+  max-width: 680px;
+  color: #f1dfd0;
+  font-size: clamp(1.05rem, 1.35vw, 1.32rem);
+  line-height: 1.68;
+}
+
+.awareness-mark {
+  min-height: 420px;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  border: 1px solid rgba(232, 76, 62, 0.42);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(232, 76, 62, 0.1), transparent 42%),
+    linear-gradient(145deg, rgba(47, 32, 34, 0.86), rgba(12, 18, 20, 0.9));
+  box-shadow: var(--shadow);
+}
+
+.awareness-mark img {
+  width: clamp(124px, 14vw, 176px);
+  height: clamp(124px, 14vw, 176px);
+  object-fit: contain;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.42));
+}
+
+.awareness-mark span {
+  color: var(--gold-bright);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.awareness-mark strong {
+  max-width: 260px;
+  margin-top: 0.4rem;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.15rem);
+  line-height: 0.92;
+  text-shadow: 0 10px 22px rgba(0, 0, 0, 0.34);
+}
+
+.awareness-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.35rem);
+}
+
+.awareness-card {
+  --org-accent: var(--gold-bright);
+  --org-border: rgba(240, 191, 120, 0.34);
+  --org-glow: rgba(240, 191, 120, 0.12);
+  min-height: 510px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--org-border);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 30% 12%, var(--org-glow), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 30%),
+    rgba(13, 16, 17, 0.8);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+}
+
+.awareness-card:nth-child(even) {
+  margin-top: 0;
+}
+
+.org-logo-panel {
+  height: 176px;
+  margin: 0.9rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 48%),
+    rgba(0, 0, 0, 0.34);
+}
+
+.org-logo-panel img {
+  display: block;
+  max-width: 78%;
+  max-height: 118px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.36));
+}
+
+.trevor .org-logo-panel {
+  background:
+    linear-gradient(135deg, rgba(255, 83, 65, 0.9), rgba(190, 56, 46, 0.9)),
+    #ff5544;
+}
+
+.trevor .org-logo-panel img {
+  max-width: 84%;
+  max-height: 138px;
+  filter: none;
+}
+
+.dav .org-logo-panel {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1), transparent 56%),
+    linear-gradient(135deg, rgba(9, 14, 22, 0.95), rgba(29, 24, 10, 0.92));
+}
+
+.dav .org-logo-panel img {
+  max-height: 140px;
+}
+
+.women-games .org-logo-panel {
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(232, 67, 49, 0.16), transparent 34%),
+    linear-gradient(135deg, rgba(247, 235, 222, 0.94), rgba(208, 215, 207, 0.88) 54%, rgba(162, 183, 177, 0.8)),
+    #ebe3d7;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.34),
+    0 14px 24px rgba(0, 0, 0, 0.2);
+}
+
+.women-games .org-logo-panel img {
+  max-width: 92%;
+  max-height: 104px;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.14));
+}
+
+.card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 1.25rem 1.35rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(242, 202, 132, 0.18);
+}
+
+.card-topline span {
+  color: var(--org-accent);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.card-topline b {
+  color: #ead5c5;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.awareness-card h3 {
+  min-height: 2.1em;
+  margin: 0 1.25rem;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 0.95;
+  text-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
+.awareness-card p {
+  flex: 1;
+  margin: 1rem 1.25rem 1.4rem;
+  color: #dfc7b7;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.awareness-card .button {
+  margin: 0 1.25rem 1.25rem;
+  align-self: flex-start;
+}
+
+.awareness-card.trevor {
+  --org-accent: #ff735f;
+  --org-border: rgba(255, 115, 95, 0.36);
+  --org-glow: rgba(255, 83, 65, 0.15);
+}
+
+.awareness-card.dav {
+  --org-accent: #d4b933;
+  --org-border: rgba(212, 185, 51, 0.34);
+  --org-glow: rgba(212, 185, 51, 0.12);
+}
+
+.awareness-card.women-games {
+  --org-accent: #ef4939;
+  --org-border: rgba(239, 73, 57, 0.34);
+  --org-glow: rgba(239, 73, 57, 0.13);
+}
+
+@media (max-width: 1180px) {
+  .awareness-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .awareness-card:nth-child(even) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 920px) {
+  .awareness-page .awareness-hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding-top: 3.5rem;
+  }
+
+  .awareness-mark {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 660px) {
+  .awareness-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .awareness-hero h1 {
+    font-size: clamp(3.2rem, 16vw, 4.85rem);
+  }
+}
