@@ -78,7 +78,9 @@ const healerSpecs = new Set([
   "shaman:restoration"
 ]);
 const playerSheetOverrides = {
-  slaineight: { role: "healer", spec: "Holy" }
+  slaineight: { role: "healer", spec: "Holy" },
+  "trééhugger": { role: "tank" },
+  treehugger: { role: "tank" }
 };
 
 const dashboard = document.querySelector("#rosterDashboard");
@@ -106,6 +108,9 @@ if (window.location.pathname.endsWith("/Roster/index.html")) {
 const slugClass = (value) => `class-${value.toLowerCase().replace(/\s+/g, "-")}`;
 const formatIlvl = (value) => Number.isInteger(value) ? value : value.toFixed(2);
 const cleanCell = (value) => String(value || "").trim();
+const normalizeNameKey = (value) =>
+  cleanCell(value).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+const playerOverrideFor = (name) => playerSheetOverrides[name.toLowerCase()] || playerSheetOverrides[normalizeNameKey(name)];
 const statusRank = (value) => statusOrder[cleanCell(value).toLowerCase()] ?? 99;
 const escapeHtml = (value) =>
   String(value).replace(/[&<>"']/g, (char) => (
@@ -332,7 +337,7 @@ function rosterFromSheetRows(rows, team) {
       const race = cleanCell(row[row.length - 2]);
       const note = cleanCell(row[row.length - 1]);
       const spec = extractSpec(note, className);
-      const override = playerSheetOverrides[name.toLowerCase()];
+      const override = playerOverrideFor(name);
       const resolvedSpec = spec || override?.spec || "";
 
       return {
