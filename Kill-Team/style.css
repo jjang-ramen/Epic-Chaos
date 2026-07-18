@@ -115,6 +115,10 @@
   filter: saturate(1.05) contrast(1.04);
 }
 
+.team-banner-frame.wide-banner img {
+  aspect-ratio: 14 / 5;
+}
+
 .banner-plaque {
   position: absolute;
   left: clamp(0.9rem, 3vw, 1.5rem);

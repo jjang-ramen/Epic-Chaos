@@ -79,6 +79,7 @@ const healerSpecs = new Set([
 ]);
 const playerSheetOverrides = {
   slaineight: { role: "healer", spec: "Holy" },
+  shieldsbald: { role: "tank" },
   "trééhugger": { role: "tank" },
   treehugger: { role: "tank" }
 };
