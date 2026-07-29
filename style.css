@@ -111,7 +111,7 @@ p,
 .contact-copy p,
 .need-card p,
 .resource-columns p,
-.report-row span,
+.report-card span,
 .logs-hub-card small {
   text-wrap: pretty;
 }
@@ -694,7 +694,7 @@ h3 {
 .section-head p,
 .player-card p,
 .progress-row small,
-.report-row small,
+.report-card small,
 .need-card p,
 .schedule-card p {
   color: var(--muted);
@@ -1343,7 +1343,7 @@ main > section.roster-controls-section {
 .class-warrior { --class: #c69b6d; }
 
 .progress-row,
-.report-row,
+.report-card,
 .need-card,
 .requirement-card,
 .contact-grid div {
@@ -1352,7 +1352,7 @@ main > section.roster-controls-section {
 }
 
 .progress-row,
-.report-row,
+.report-card,
 .need-card,
 .contact-grid div {
   border: 1px solid var(--line);
@@ -1402,31 +1402,43 @@ main > section.roster-controls-section {
   opacity: 0.72;
 }
 
-.report-row {
+.report-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0.25rem 0.9rem;
+  align-items: start;
+  gap: 0.65rem 0.9rem;
   min-width: 0;
   color: #f4e8d0;
-  text-decoration: none;
 }
 
-.report-row strong {
+.report-card-main {
+  display: grid;
+  gap: 0.22rem;
+  min-width: 0;
+}
+
+.report-title {
   min-width: 0;
   overflow-wrap: anywhere;
   color: #fff4f0;
   font-size: 1.02rem;
+  font-weight: 900;
+  text-decoration: none;
 }
 
-.report-row span {
+.report-title:hover,
+.report-title:focus-visible {
+  color: #ffd69a;
+  outline: none;
+}
+
+.report-card span {
   min-width: 0;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-.report-row small {
-  grid-row: 1 / span 2;
+.report-card > small {
   grid-column: 2;
   justify-self: end;
   border: 1px solid rgba(255, 82, 74, 0.3);
@@ -1438,10 +1450,64 @@ main > section.roster-controls-section {
   white-space: nowrap;
 }
 
-.report-row:hover,
-.report-row:focus-visible {
+.report-card:hover,
+.report-card:focus-within {
   border-color: rgba(255, 116, 110, 0.78);
   outline: none;
+}
+
+.report-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.report-action {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+  border: 1px solid rgba(240, 184, 109, 0.22);
+  border-radius: 4px;
+  padding: 0.34rem 0.5rem;
+  background: rgba(0, 0, 0, 0.18);
+  color: #eadbca;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.report-action svg {
+  width: 15px;
+  height: 15px;
+  color: var(--gold-bright);
+}
+
+.report-action.primary {
+  border-color: rgba(255, 116, 110, 0.36);
+  color: #fff4ed;
+}
+
+.report-action:hover,
+.report-action:focus-visible {
+  border-color: rgba(240, 184, 109, 0.55);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff8ee;
+  outline: none;
+}
+
+.report-action.is-copied {
+  border-color: rgba(112, 212, 139, 0.55);
+  color: #d9ffe3;
+}
+
+.report-action.is-copied svg {
+  color: #70d48b;
 }
 
 .text-link {
@@ -1709,6 +1775,15 @@ main > section.roster-controls-section {
 
   .raid-time-line b {
     white-space: normal;
+  }
+
+  .report-card {
+    grid-template-columns: 1fr;
+  }
+
+  .report-card > small {
+    grid-column: 1;
+    justify-self: start;
   }
 
   .tabs button,

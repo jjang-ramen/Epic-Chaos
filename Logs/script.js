@@ -48,17 +48,62 @@ function renderReports() {
   }
 
   reportsList.innerHTML = reports.map((report) => `
-    <a class="report-row" href="${report.url}">
-      <strong>${escapeHtml(report.title)}</strong>
-      <span>${escapeHtml(getReportMeta(report))}</span>
+    <article class="report-card">
+      <div class="report-card-main">
+        <a class="report-title" href="${escapeHtml(report.url)}">${escapeHtml(report.title)}</a>
+        <span>${escapeHtml(getReportMeta(report))}</span>
+      </div>
       <small>${escapeHtml(report.duration || "Open log")}</small>
-    </a>
+      <div class="report-actions" aria-label="Report tools">
+        <a class="report-action primary" href="${escapeHtml(report.url)}">
+          <i data-lucide="bar-chart-3"></i>
+          Log
+        </a>
+        ${renderReportToolLink(report, "Wipefest", "activity", getWipefestUrl)}
+        ${renderReportToolLink(report, "Analyzer", "search-check", getWowAnalyzerUrl)}
+        <button class="report-action" type="button" data-report-copy="${escapeHtml(report.url)}">
+          <i data-lucide="copy"></i>
+          Copy
+        </button>
+      </div>
+    </article>
   `).join("");
+
+  createLucideIcons();
 }
 
 function getReportMeta(report) {
   const details = [report.owner && `Logged by ${report.owner}`, report.date].filter(Boolean);
   return details.join(" / ") || "Warcraft Logs";
+}
+
+function getReportCode(report) {
+  const match = String(report.url || "").match(/warcraftlogs\.com\/reports\/([A-Za-z0-9]+)/i);
+  return match ? match[1] : "";
+}
+
+function getWipefestUrl(report) {
+  const code = getReportCode(report);
+  return code ? `https://www.wipefest.gg/report/${code}?gameVersion=warcraft-live` : "";
+}
+
+function getWowAnalyzerUrl(report) {
+  const code = getReportCode(report);
+  return code ? `https://wowanalyzer.com/report/${code}` : "";
+}
+
+function renderReportToolLink(report, label, icon, buildUrl) {
+  const url = buildUrl(report);
+  if (!url) {
+    return "";
+  }
+
+  return `
+    <a class="report-action" href="${escapeHtml(url)}">
+      <i data-lucide="${icon}"></i>
+      ${label}
+    </a>
+  `;
 }
 
 function normalizeReport(report) {
@@ -185,10 +230,58 @@ if (backTopButton) {
   });
 }
 
+if (reportsList) {
+  reportsList.addEventListener("click", async (event) => {
+    const copyButton = event.target.closest("[data-report-copy]");
+    if (!copyButton) {
+      return;
+    }
+
+    const reportUrl = copyButton.dataset.reportCopy;
+    if (!reportUrl) {
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(reportUrl);
+      setCopyButtonState(copyButton, "Copied");
+    } catch {
+      const fallback = document.createElement("textarea");
+      fallback.value = reportUrl;
+      fallback.setAttribute("readonly", "");
+      fallback.style.position = "fixed";
+      fallback.style.opacity = "0";
+      document.body.appendChild(fallback);
+      fallback.select();
+      document.execCommand("copy");
+      fallback.remove();
+      setCopyButtonState(copyButton, "Copied");
+    }
+  });
+}
+
+function setCopyButtonState(button, label) {
+  const original = button.dataset.originalLabel || button.textContent.trim();
+  button.dataset.originalLabel = original;
+  button.classList.add("is-copied");
+  button.innerHTML = `<i data-lucide="check"></i>${label}`;
+  createLucideIcons();
+
+  window.setTimeout(() => {
+    button.classList.remove("is-copied");
+    button.innerHTML = `<i data-lucide="copy"></i>${escapeHtml(original)}`;
+    createLucideIcons();
+  }, 1600);
+}
+
+function createLucideIcons() {
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
 renderReports();
 refreshReportsFromFeed();
 window.setInterval(refreshReportsFromFeed, reportsRefreshMs);
 
-if (window.lucide) {
-  window.lucide.createIcons();
-}
+createLucideIcons();
