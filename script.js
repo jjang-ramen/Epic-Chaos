@@ -101,7 +101,7 @@ const requirements = {
     {
       title: "Heroic Team",
       items: [
-        "Heroic/AOTC team runs Wednesday, 8:00 PM - 10:00 PM EST.",
+        "Heroic/AOTC team runs Wednesday and Thursday, 8:00 PM - 10:00 PM EST.",
         "At least one +8 Mythic+ in your vault per week.",
         "Be ready for Heroic progression at a steady, low-drama pace.",
       ]
