@@ -72,7 +72,7 @@ const requirements = {
     {
       title: "Mythic Team",
       items: [
-        "Mythic team runs Friday and Saturday, 9:00 PM - 12:00 AM EST.",
+        "Mythic team runs Friday and Saturday, 8:30 PM - 12:00 AM EST.",
         "Cutting Edge is the end goal.",
         "Two Mythic+ vault slots per week, in addition to raid slots.",
         "Prioritize guild groups for keys when you can."

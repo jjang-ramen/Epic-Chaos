@@ -1,6 +1,6 @@
 .armory-page .nav-links a[aria-current="page"] {
-  background: rgba(168, 109, 61, 0.18);
-  color: #fff8e6;
+  background: rgba(143, 47, 42, 0.2);
+  color: #fff0ee;
 }
 
 .armory-page h1 {
@@ -28,11 +28,11 @@
   grid-template-columns: minmax(116px, 0.72fr) minmax(0, 1fr);
   align-items: center;
   gap: 1rem;
-  border: 1px solid rgba(176, 139, 92, 0.32);
+  border: 1px solid rgba(214, 64, 53, 0.32);
   border-radius: var(--radius);
   padding: 1.15rem;
   background:
-    linear-gradient(145deg, rgba(168, 109, 61, 0.07), rgba(61, 113, 110, 0.04)),
+    linear-gradient(145deg, rgba(143, 47, 42, 0.07), rgba(61, 113, 110, 0.04)),
     rgba(255, 255, 255, 0.034);
   box-shadow: none;
 }
@@ -48,7 +48,7 @@
 }
 
 .armory-mark span {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -85,10 +85,10 @@
   overflow: hidden;
   display: grid;
   grid-template-rows: auto 1fr;
-  border: 1px solid rgba(176, 139, 92, 0.24);
+  border: 1px solid rgba(214, 64, 53, 0.24);
   border-radius: var(--radius);
   background:
-    linear-gradient(145deg, rgba(168, 109, 61, 0.052), rgba(61, 113, 110, 0.03)),
+    linear-gradient(145deg, rgba(143, 47, 42, 0.052), rgba(61, 113, 110, 0.03)),
     rgba(255, 255, 255, 0.034);
   box-shadow: none;
   cursor: pointer;
@@ -97,9 +97,9 @@
 
 .kill-card:hover,
 .kill-card:focus-within {
-  border-color: rgba(255, 208, 144, 0.48);
+  border-color: rgba(226, 87, 77, 0.48);
   background:
-    linear-gradient(145deg, rgba(168, 109, 61, 0.08), rgba(61, 113, 110, 0.04)),
+    linear-gradient(145deg, rgba(143, 47, 42, 0.08), rgba(61, 113, 110, 0.04)),
     rgba(255, 255, 255, 0.038);
 }
 
@@ -118,11 +118,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  border: 1px solid rgba(255, 208, 144, 0.3);
+  border: 1px solid rgba(226, 87, 77, 0.3);
   border-radius: 999px;
   padding: 0.48rem 0.78rem;
   background: rgba(5, 4, 4, 0.78);
-  color: #fff8e6;
+  color: #fff0ee;
   font: inherit;
   font-weight: 900;
   backdrop-filter: none;
@@ -132,7 +132,7 @@
 .watch-button svg {
   width: 17px;
   height: 17px;
-  color: var(--gold-bright);
+  color: var(--accent-bright);
 }
 
 .watch-button:hover,
@@ -164,7 +164,7 @@
 }
 
 .kill-info span {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-size: 0.75rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -187,7 +187,7 @@
 .kill-modal {
   width: min(1120px, calc(100vw - 28px));
   max-height: calc(100vh - 28px);
-  border: 1px solid rgba(176, 139, 92, 0.38);
+  border: 1px solid rgba(214, 64, 53, 0.38);
   border-radius: var(--radius);
   padding: 0;
   background: #050506;
@@ -205,7 +205,7 @@
   display: grid;
   gap: 0;
   background:
-    linear-gradient(145deg, rgba(168, 109, 61, 0.08), rgba(61, 113, 110, 0.04)),
+    linear-gradient(145deg, rgba(143, 47, 42, 0.08), rgba(61, 113, 110, 0.04)),
     #07090d;
 }
 
@@ -218,10 +218,10 @@
   height: 42px;
   display: inline-grid;
   place-items: center;
-  border: 1px solid rgba(255, 208, 144, 0.24);
+  border: 1px solid rgba(226, 87, 77, 0.24);
   border-radius: 999px;
   background: rgba(5, 4, 4, 0.8);
-  color: #fff8e6;
+  color: #fff0ee;
   cursor: pointer;
 }
 
@@ -255,7 +255,7 @@
 }
 
 .modal-info span {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-size: 0.75rem;
   font-weight: 900;
   letter-spacing: 0.08em;

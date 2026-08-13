@@ -12,7 +12,7 @@
 .awareness-hero-copy {
   max-width: 660px;
   padding-left: clamp(1rem, 3vw, 1.6rem);
-  border-left: 4px solid rgba(168, 109, 61, 0.78);
+  border-left: 4px solid rgba(214, 64, 53, 0.78);
   box-shadow: none;
 }
 
@@ -45,10 +45,10 @@
   align-content: center;
   justify-items: center;
   text-align: center;
-  border: 1px solid rgba(176, 139, 92, 0.26);
+  border: 1px solid rgba(214, 64, 53, 0.26);
   border-radius: var(--radius);
   background:
-    linear-gradient(145deg, rgba(168, 109, 61, 0.07), rgba(61, 113, 110, 0.04)),
+    linear-gradient(145deg, rgba(143, 47, 42, 0.07), rgba(61, 113, 110, 0.04)),
     rgba(14, 15, 16, 0.92);
   box-shadow: 0 14px 24px rgba(0, 0, 0, 0.24);
 }
@@ -62,7 +62,7 @@
 }
 
 .awareness-mark span {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-size: 0.82rem;
   font-weight: 900;
   letter-spacing: 0.11em;
@@ -93,8 +93,8 @@
 }
 
 .awareness-card {
-  --org-accent: var(--gold-bright);
-  --org-border: rgba(240, 191, 120, 0.34);
+  --org-accent: var(--accent-bright);
+  --org-border: rgba(214, 64, 53, 0.34);
   min-height: 470px;
   padding: 0;
   display: flex;

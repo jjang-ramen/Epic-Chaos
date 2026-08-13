@@ -9,8 +9,8 @@
   --paper-ink: #e8ddcf;
   --line: rgba(214, 64, 53, 0.22);
   --line-dark: rgba(214, 64, 53, 0.3);
-  --gold: #8f2f2a;
-  --gold-bright: #e2574d;
+  --accent: #8f2f2a;
+  --accent-bright: #e2574d;
   --red: #d64035;
   --green: #3d716e;
   --blue: #6d7c91;
@@ -120,7 +120,7 @@ h3 {
   top: 1rem;
   z-index: 50;
   transform: translateY(-150%);
-  background: var(--gold);
+  background: var(--accent);
   color: #fff7f5;
   padding: 0.65rem 0.85rem;
   border-radius: 6px;
@@ -230,25 +230,25 @@ h3 {
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-  background: rgba(176, 139, 92, 0.14);
-  color: #fff8e6;
+  background: rgba(214, 64, 53, 0.14);
+  color: #fff0ee;
   outline: none;
 }
 
 .nav-links a[aria-current="page"] {
-  background: rgba(168, 109, 61, 0.18);
-  color: #fff8e6;
+  background: rgba(143, 47, 42, 0.2);
+  color: #fff0ee;
 }
 
 .nav-links .nav-cta {
   margin-left: 0.18rem;
-  color: #fff8e6;
+  color: #fff0ee;
   font-weight: 800;
 }
 
 .nav-links .nav-cta:hover,
 .nav-links .nav-cta:focus-visible {
-  background: rgba(176, 139, 92, 0.14);
+  background: rgba(214, 64, 53, 0.14);
 }
 
 .icon-button {
@@ -284,13 +284,13 @@ h3 {
   width: 5px;
   height: 72%;
   border-radius: 99px;
-  background: linear-gradient(#3d716e, var(--gold-bright), #6d7c91);
+  background: linear-gradient(#3d716e, var(--accent-bright), #6d7c91);
 }
 
 .eyebrow,
 .section-kicker {
   margin: 0 0 0.8rem;
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -319,11 +319,11 @@ h3 {
   display: grid;
   align-content: center;
   gap: 0.18rem;
-  border: 1px solid rgba(176, 139, 92, 0.24);
+  border: 1px solid rgba(214, 64, 53, 0.24);
   border-radius: 6px;
   padding: 0.95rem 1rem 0.85rem;
   background:
-    linear-gradient(135deg, rgba(168, 109, 61, 0.08), transparent 42%),
+    linear-gradient(135deg, rgba(143, 47, 42, 0.08), transparent 42%),
     rgba(255, 255, 255, 0.024);
   box-shadow: none;
 }
@@ -359,7 +359,7 @@ h3 {
 }
 
 .hero-focus span {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.11em;
@@ -407,7 +407,7 @@ h3 {
 
 .leader-strip b,
 .summary-pill b {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
 }
 
 .button {
@@ -416,7 +416,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 0.52rem;
-  border: 1px solid rgba(176, 139, 92, 0.34);
+  border: 1px solid rgba(214, 64, 53, 0.34);
   border-radius: 6px;
   padding: 0.66rem 0.9rem;
   background: rgba(255, 255, 255, 0.065);
@@ -428,13 +428,13 @@ h3 {
 
 .button:hover,
 .button:focus-visible {
-  background: rgba(168, 109, 61, 0.18);
+  background: rgba(143, 47, 42, 0.18);
   border-color: rgba(226, 87, 77, 0.62);
   outline: none;
 }
 
 .button.primary {
-  background: var(--gold);
+  background: var(--accent);
   color: #fff8f7;
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.22);
 }
@@ -455,18 +455,18 @@ h3 {
 }
 
 .hero-board {
-  border: 1px solid rgba(176, 139, 92, 0.3);
+  border: 1px solid rgba(214, 64, 53, 0.3);
   border-radius: var(--radius);
   padding: clamp(0.85rem, 2vw, 1.15rem);
   background:
-    linear-gradient(145deg, rgba(168, 109, 61, 0.07), rgba(61, 113, 110, 0.035)),
+    linear-gradient(145deg, rgba(143, 47, 42, 0.07), rgba(61, 113, 110, 0.035)),
     rgba(13, 13, 13, 0.96);
   box-shadow: 0 18px 30px rgba(0, 0, 0, 0.26);
 }
 
 .logo-card {
   margin: 0 0 0.75rem;
-  border: 1px solid rgba(168, 109, 61, 0.32);
+  border: 1px solid rgba(214, 64, 53, 0.32);
   border-radius: var(--radius);
   overflow: hidden;
   background: #000;
@@ -604,7 +604,7 @@ h3 {
 
 .star-core.outer {
   fill: #070304;
-  stroke: var(--gold-bright);
+  stroke: var(--accent-bright);
   stroke-width: 7;
 }
 
@@ -615,14 +615,14 @@ h3 {
 }
 
 .star-core.inner {
-  fill: var(--gold-bright);
+  fill: var(--accent-bright);
   stroke: #070304;
   stroke-width: 2;
 }
 
 .core-mark {
   fill: none;
-  stroke: var(--gold-bright);
+  stroke: var(--accent-bright);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 5;
@@ -638,7 +638,7 @@ h3 {
 }
 
 .brand-logo .star-core.middle {
-  fill: var(--gold-bright);
+  fill: var(--accent-bright);
   stroke: #070304;
   stroke-width: 2;
 }
@@ -805,7 +805,7 @@ h3 {
 }
 
 .band-paper .section-kicker {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
 }
 
 .band-paper .section-head p,
@@ -830,7 +830,7 @@ h3 {
 
 .band-contact {
   background:
-    linear-gradient(135deg, rgba(168, 109, 61, 0.07), transparent 34%),
+    linear-gradient(135deg, rgba(143, 47, 42, 0.07), transparent 34%),
     #08090d;
   border-top: 1px solid var(--line);
 }
@@ -849,7 +849,7 @@ main > section::before {
   left: calc(50% - 50vw);
   right: calc(50% - 50vw);
   z-index: -1;
-  border-block: 1px solid rgba(176, 139, 92, 0.12);
+  border-block: 1px solid rgba(214, 64, 53, 0.12);
 }
 
 main > section:first-child::before {
@@ -1186,7 +1186,7 @@ main > section.roster-controls-section {
 }
 
 .season-archive-links span {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.11em;
@@ -1257,7 +1257,7 @@ main > section.roster-controls-section {
   place-items: center;
   border: 1px solid rgba(214, 64, 53, 0.34);
   border-radius: 6px;
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.22rem;
 }
@@ -1312,8 +1312,8 @@ main > section.roster-controls-section {
 
 .segmented button.is-active,
 .tabs button.is-active {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff8f7;
 }
 
@@ -1330,7 +1330,7 @@ main > section.roster-controls-section {
 
 .search-box svg {
   width: 18px;
-  color: var(--gold-bright);
+  color: var(--accent-bright);
 }
 
 .search-box input {
@@ -1352,7 +1352,7 @@ main > section.roster-controls-section {
 }
 
 .player-card {
-  --class: var(--gold);
+  --class: var(--accent);
   position: relative;
   min-height: 122px;
   overflow: hidden;
@@ -1562,7 +1562,7 @@ main > section.roster-controls-section {
   border: 1px solid rgba(214, 64, 53, 0.3);
   border-radius: 4px;
   padding: 0.24rem 0.42rem;
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-size: 0.76rem;
   font-weight: 700;
   white-space: nowrap;
@@ -1603,7 +1603,7 @@ main > section.roster-controls-section {
 .report-action svg {
   width: 15px;
   height: 15px;
-  color: var(--gold-bright);
+  color: var(--accent-bright);
 }
 
 .report-action.primary {
@@ -1630,7 +1630,7 @@ main > section.roster-controls-section {
 
 .text-link {
   justify-self: start;
-  color: var(--gold-bright);
+  color: var(--accent-bright);
   font-weight: 700;
   text-underline-offset: 0.18em;
 }
@@ -1652,7 +1652,7 @@ main > section.roster-controls-section {
 
 .requirement-card h3,
 .resource-columns h3 {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
 }
 
 .requirement-card ul,
@@ -1750,7 +1750,7 @@ main > section.roster-controls-section {
   display: flex;
   justify-content: center;
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid rgba(176, 139, 92, 0.12);
+  border-bottom: 1px solid rgba(214, 64, 53, 0.12);
   background: rgba(6, 6, 6, 0.96);
 }
 
@@ -1759,13 +1759,13 @@ main > section.roster-controls-section {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  border: 1px solid rgba(176, 139, 92, 0.28);
+  border: 1px solid rgba(214, 64, 53, 0.28);
   border-radius: 6px;
   padding: 0 0.8rem;
   background:
-    linear-gradient(135deg, rgba(168, 109, 61, 0.1), rgba(61, 113, 110, 0.04)),
+    linear-gradient(135deg, rgba(143, 47, 42, 0.1), rgba(61, 113, 110, 0.04)),
     rgba(5, 4, 4, 0.88);
-  color: #fff8e6;
+  color: #fff0ee;
   font: inherit;
   font-size: 0.9rem;
   font-weight: 800;
@@ -1776,7 +1776,7 @@ main > section.roster-controls-section {
 .back-top:hover,
 .back-top:focus-visible {
   background:
-    linear-gradient(135deg, rgba(168, 109, 61, 0.18), rgba(61, 113, 110, 0.08)),
+    linear-gradient(135deg, rgba(143, 47, 42, 0.18), rgba(61, 113, 110, 0.08)),
     rgba(5, 4, 4, 0.94);
   outline: none;
 }
@@ -1784,7 +1784,7 @@ main > section.roster-controls-section {
 .back-top svg {
   width: 17px;
   height: 17px;
-  color: var(--gold-bright);
+  color: var(--accent-bright);
 }
 
 @media (max-width: 1020px) {

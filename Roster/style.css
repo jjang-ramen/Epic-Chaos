@@ -1,6 +1,6 @@
 .roster-page .nav-links a[aria-current="page"] {
-  background: rgba(198, 120, 63, 0.18);
-  color: #fff8e6;
+  background: rgba(143, 47, 42, 0.2);
+  color: #fff0ee;
 }
 
 .roster-page h1 {
@@ -43,7 +43,7 @@
   border-radius: var(--radius);
   padding: 1rem;
   background:
-    linear-gradient(145deg, rgba(143, 98, 56, 0.075), rgba(61, 113, 110, 0.045)),
+    linear-gradient(145deg, rgba(143, 47, 42, 0.075), rgba(61, 113, 110, 0.045)),
     rgba(255, 255, 255, 0.055);
 }
 
@@ -81,7 +81,7 @@
   right: 0.5rem;
   bottom: 0.35rem;
   height: 1px;
-  background: var(--status-accent, rgba(240, 184, 109, 0.72));
+  background: var(--status-accent, rgba(214, 64, 53, 0.72));
   opacity: 0.62;
 }
 
@@ -93,10 +93,10 @@
 }
 
 .status-bench {
-  --status-accent: rgba(240, 184, 109, 0.9);
-  border-color: rgba(240, 184, 109, 0.38);
-  background: rgba(240, 184, 109, 0.12);
-  color: #ffe0ad;
+  --status-accent: rgba(214, 64, 53, 0.86);
+  border-color: rgba(214, 64, 53, 0.36);
+  background: rgba(214, 64, 53, 0.11);
+  color: #ffd7d3;
 }
 
 .status-trial {
@@ -152,7 +152,7 @@
 }
 
 .player-card .team-name {
-  color: var(--gold-bright);
+  color: var(--accent-bright);
 }
 
 .player-card.class-evoker p {
