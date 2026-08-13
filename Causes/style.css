@@ -1,30 +1,30 @@
 .awareness-page .awareness-hero {
   width: min(var(--max), calc(100% - 32px));
-  min-height: calc(100svh - var(--header));
+  min-height: auto;
   margin: 0 auto;
-  padding: clamp(4.8rem, 8vw, 8.5rem) 0 clamp(3rem, 6vw, 5rem);
+  padding: clamp(3rem, 6vw, 5.4rem) 0 clamp(2.5rem, 5vw, 4.4rem);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 380px);
   align-items: center;
-  gap: clamp(2rem, 7vw, 7rem);
+  gap: clamp(2rem, 6vw, 5rem);
 }
 
 .awareness-hero-copy {
-  max-width: 760px;
+  max-width: 660px;
   padding-left: clamp(1rem, 3vw, 1.6rem);
-  border-left: 5px solid rgba(232, 76, 62, 0.82);
-  box-shadow: inset 1px 0 rgba(240, 191, 120, 0.36);
+  border-left: 4px solid rgba(168, 109, 61, 0.78);
+  box-shadow: none;
 }
 
 .awareness-hero h1 {
-  max-width: 760px;
+  max-width: 620px;
   margin: 0.55rem 0 1.35rem;
   color: var(--ink);
   font-family: var(--display);
-  font-size: clamp(3.6rem, 5.6vw, 6.2rem);
-  line-height: 0.94;
+  font-size: clamp(3.05rem, 5vw, 5.15rem);
+  line-height: 0.96;
   letter-spacing: 0;
-  text-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+  text-shadow: none;
 }
 
 .awareness-hero h1 span {
@@ -32,33 +32,33 @@
 }
 
 .awareness-hero .lead {
-  max-width: 680px;
-  color: #f1dfd0;
-  font-size: clamp(1.05rem, 1.35vw, 1.32rem);
-  line-height: 1.68;
+  max-width: 620px;
+  color: #e0d2c2;
+  font-size: clamp(1rem, 1.2vw, 1.16rem);
+  line-height: 1.65;
 }
 
 .awareness-mark {
-  min-height: 420px;
-  padding: clamp(1.2rem, 3vw, 2rem);
+  min-height: 330px;
+  padding: clamp(1.1rem, 3vw, 1.65rem);
   display: grid;
   align-content: center;
   justify-items: center;
   text-align: center;
-  border: 1px solid rgba(232, 76, 62, 0.42);
-  border-radius: 8px;
+  border: 1px solid rgba(176, 139, 92, 0.26);
+  border-radius: var(--radius);
   background:
-    radial-gradient(circle at 50% 30%, rgba(232, 76, 62, 0.1), transparent 42%),
-    linear-gradient(145deg, rgba(47, 32, 34, 0.86), rgba(12, 18, 20, 0.9));
-  box-shadow: var(--shadow);
+    linear-gradient(145deg, rgba(168, 109, 61, 0.07), rgba(61, 113, 110, 0.04)),
+    rgba(14, 15, 16, 0.92);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.24);
 }
 
 .awareness-mark img {
-  width: clamp(124px, 14vw, 176px);
-  height: clamp(124px, 14vw, 176px);
+  width: clamp(108px, 12vw, 144px);
+  height: clamp(108px, 12vw, 144px);
   object-fit: contain;
-  margin-bottom: 1.2rem;
-  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.42));
+  margin-bottom: 1rem;
+  filter: none;
 }
 
 .awareness-mark span {
@@ -74,9 +74,9 @@
   margin-top: 0.4rem;
   color: var(--ink);
   font-family: var(--display);
-  font-size: clamp(2rem, 4vw, 3.15rem);
-  line-height: 0.92;
-  text-shadow: 0 10px 22px rgba(0, 0, 0, 0.34);
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  line-height: 0.98;
+  text-shadow: none;
 }
 
 .awareness-grid {
@@ -87,27 +87,25 @@
 
 .groups-title {
   max-width: none;
-  font-size: clamp(1.95rem, 3vw, 3rem);
-  line-height: 1;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  line-height: 0.98;
   white-space: nowrap;
 }
 
 .awareness-card {
   --org-accent: var(--gold-bright);
   --org-border: rgba(240, 191, 120, 0.34);
-  --org-glow: rgba(240, 191, 120, 0.12);
-  min-height: 510px;
+  min-height: 470px;
   padding: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--org-border);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background:
-    radial-gradient(circle at 30% 12%, var(--org-glow), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 34%),
     rgba(13, 16, 17, 0.8);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+  box-shadow: none;
 }
 
 .awareness-card:nth-child(even) {
@@ -115,15 +113,15 @@
 }
 
 .org-logo-panel {
-  height: 176px;
+  height: 160px;
   margin: 0.9rem;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: var(--radius);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 48%),
-    rgba(0, 0, 0, 0.34);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 52%),
+    rgba(0, 0, 0, 0.28);
 }
 
 .org-logo-panel img {
@@ -131,7 +129,7 @@
   max-width: 78%;
   max-height: 118px;
   object-fit: contain;
-  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.36));
+  filter: none;
 }
 
 .trevor .org-logo-panel {
@@ -148,7 +146,6 @@
 
 .dav .org-logo-panel {
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1), transparent 56%),
     linear-gradient(135deg, rgba(9, 14, 22, 0.95), rgba(29, 24, 10, 0.92));
 }
 
@@ -159,18 +156,15 @@
 .women-games .org-logo-panel {
   padding: 1rem;
   background:
-    radial-gradient(circle at 16% 18%, rgba(232, 67, 49, 0.16), transparent 34%),
-    linear-gradient(135deg, rgba(247, 235, 222, 0.94), rgba(208, 215, 207, 0.88) 54%, rgba(162, 183, 177, 0.8)),
+    linear-gradient(135deg, rgba(244, 236, 224, 0.96), rgba(199, 210, 205, 0.9)),
     #ebe3d7;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.34),
-    0 14px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 .women-games .org-logo-panel img {
   max-width: 92%;
   max-height: 104px;
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.14));
+  filter: none;
 }
 
 .card-topline {
@@ -204,9 +198,9 @@
   margin: 0 1.25rem;
   color: var(--ink);
   font-family: var(--display);
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  line-height: 0.95;
-  text-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+  font-size: clamp(1.8rem, 2.5vw, 2.35rem);
+  line-height: 1;
+  text-shadow: none;
 }
 
 .awareness-card p {
@@ -225,19 +219,16 @@
 .awareness-card.trevor {
   --org-accent: #ff735f;
   --org-border: rgba(255, 115, 95, 0.36);
-  --org-glow: rgba(255, 83, 65, 0.15);
 }
 
 .awareness-card.dav {
   --org-accent: #d4b933;
   --org-border: rgba(212, 185, 51, 0.34);
-  --org-glow: rgba(212, 185, 51, 0.12);
 }
 
 .awareness-card.women-games {
   --org-accent: #ef4939;
   --org-border: rgba(239, 73, 57, 0.34);
-  --org-glow: rgba(239, 73, 57, 0.13);
 }
 
 @media (max-width: 1180px) {
@@ -268,7 +259,6 @@
   }
 
   .awareness-hero h1 {
-    font-size: clamp(3.2rem, 16vw, 4.85rem);
+    font-size: clamp(2.8rem, 14vw, 4.25rem);
   }
-
 }
