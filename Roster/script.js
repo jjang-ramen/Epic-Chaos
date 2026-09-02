@@ -21,7 +21,7 @@ let mythicRoster = [
   { name: "Islen\u00eb", team: "mythic", role: "dps", className: "Rogue", spec: "Subtlety", realm: "Area 52", ilvl: 290 },
   { name: "M\u00f4rena", team: "mythic", role: "dps", className: "Shaman", spec: "Elemental", realm: "Thunderlord", ilvl: 286 },
   { name: "Profien", team: "mythic", role: "dps", className: "Warlock", spec: "Demonology", realm: "Illidan", ilvl: 290 },
-  { name: "Ramenstrong", team: "mythic", role: "dps", className: "Warrior", spec: "Fury", realm: "Area 52", ilvl: 289 }
+  { name: "Ramenfury", team: "mythic", role: "dps", className: "Warrior", spec: "Fury", realm: "Area 52", ilvl: 289 }
 ];
 
 let heroicRoster = [

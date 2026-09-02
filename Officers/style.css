@@ -64,8 +64,8 @@
   display: block;
   color: #fff7f0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  line-height: 0.95;
+  font-size: clamp(1.55rem, 2.7vw, 2.1rem);
+  line-height: 1;
   white-space: nowrap;
 }
 
@@ -80,7 +80,7 @@
 .officer-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(0.85rem, 1.6vw, 1.15rem);
+  gap: clamp(1rem, 1.8vw, 1.35rem);
 }
 
 .officer-card {
@@ -205,6 +205,10 @@
 }
 
 @media (max-width: 680px) {
+  .officers-hero {
+    padding-top: 2.4rem;
+  }
+
   .officer-card {
     grid-template-columns: 1fr;
   }

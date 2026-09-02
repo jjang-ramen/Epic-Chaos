@@ -21,7 +21,7 @@ const roster = [
   { name: "Islen\u00eb", role: "dps", className: "Rogue", spec: "Subtlety", realm: "Area 52", ilvl: 290 },
   { name: "M\u00f4rena", role: "dps", className: "Shaman", spec: "Elemental", realm: "Thunderlord", ilvl: 286 },
   { name: "Profien", role: "dps", className: "Warlock", spec: "Demonology", realm: "Illidan", ilvl: 290 },
-  { name: "Ramenstrong", role: "dps", className: "Warrior", spec: "Fury", realm: "Area 52", ilvl: 289 }
+  { name: "Ramenfury", role: "dps", className: "Warrior", spec: "Fury", realm: "Area 52", ilvl: 289 }
 ];
 
 let reports = [

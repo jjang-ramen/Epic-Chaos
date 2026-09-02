@@ -184,6 +184,24 @@
   color: var(--muted);
 }
 
+@media (min-width: 901px) {
+  .kill-card:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+    grid-template-rows: auto;
+  }
+
+  .kill-card:nth-child(odd):last-child .youtube-preview img {
+    height: 100%;
+  }
+
+  .kill-card:nth-child(odd):last-child .kill-info {
+    min-height: auto;
+    align-content: center;
+    display: grid;
+  }
+}
+
 .kill-modal {
   width: min(1120px, calc(100vw - 28px));
   max-height: calc(100vh - 28px);

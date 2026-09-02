@@ -121,6 +121,7 @@
   grid-template-columns: auto auto minmax(220px, 1fr);
   align-items: center;
   gap: 0.8rem;
+  min-width: 0;
 }
 
 .roster-search {
@@ -196,6 +197,7 @@
 
   .team-summary {
     justify-content: flex-start;
+    min-width: 0;
   }
 
   .team-grid {
@@ -204,6 +206,14 @@
 }
 
 @media (max-width: 620px) {
+  .roster-controls-section {
+    padding: 0.85rem 0;
+  }
+
+  .roster-control-row {
+    gap: 0.65rem;
+  }
+
   .team-grid {
     grid-template-columns: 1fr;
   }
@@ -219,5 +229,15 @@
 
   .dashboard-tile {
     min-height: 92px;
+  }
+
+  .team-summary {
+    gap: 0.36rem;
+  }
+
+  .team-summary .summary-pill {
+    min-height: 34px;
+    padding: 0.38rem 0.52rem;
+    font-size: 0.8rem;
   }
 }
