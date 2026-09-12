@@ -11,10 +11,11 @@
     <link rel="icon" type="image/png" href="assets/epic-chaos-logo-v5.png">
     <link rel="apple-touch-icon" href="assets/epic-chaos-logo-v5.png">
     <link rel="stylesheet" href="style.css?v=43">
+    <link rel="stylesheet" href="theme.css?v=1">
     <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
     <script defer src="script.js?v=21"></script>
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#content">Skip to content</a>
 
     <header class="site-header">
@@ -48,11 +49,11 @@
       <section class="hero" id="top" aria-labelledby="heroTitle">
         <div class="hero-copy">
           <p class="eyebrow">Midnight Season 2 / 18+ WoW guild</p>
-          <h1 id="heroTitle">Epic Chaos</h1>
+          <h1 id="heroTitle">Epic Chaos<span class="hero-tagline">Good people.<br>Questionable pulls.</span></h1>
           <p class="lead">
-            Sixteen years of pulls, wipes, kills, rebuilds, and still standing.
-            Season 2 starts with the same idea: steady raid nights, clean comms,
-            Mythic progression, and a Discord that stays alive between lockouts.
+            Sixteen years of “one more pull.” We raid, run keys, hang out in Discord,
+            and keep coming back for the people. Serious about progression.
+            Always room for a laugh.
           </p>
 
           <div class="hero-focus" aria-label="Current guild focus">
@@ -67,8 +68,8 @@
               <small>8:00 PM - 10:00 PM EST</small>
             </article>
             <article>
-              <span>Current Season</span>
-              <strong>0/8</strong>
+              <span>Mythic progress</span>
+              <strong>1/8</strong>
               <small>Midnight Season 2</small>
             </article>
           </div>
@@ -85,7 +86,7 @@
           <div class="hero-actions">
             <a class="button primary" href="https://forms.gle/5R5TwA4dQadTschp9">
               <i data-lucide="send"></i>
-              Apply
+              Find your raid crew
             </a>
             <a class="button" href="/Logs/">
               <i data-lucide="bar-chart-3"></i>
@@ -102,64 +103,42 @@
           </div>
         </div>
 
-        <div class="hero-board" aria-label="Epic Chaos overview">
-          <figure class="logo-card logo-card-image">
-            <figcaption class="logo-wordmark logo-wordmark-top">Epic Chaos</figcaption>
-            <img class="hero-logo-img" src="assets/epic-chaos-logo-v5.png" alt="Epic Chaos chaos star logo" width="4096" height="4096">
-            <figcaption class="logo-wordmark logo-wordmark-bottom">
-              <span>Embrace the Chaos</span>
-              <span>Be Epic</span>
-            </figcaption>
+        <div class="guild-scrapbook" aria-label="Epic Chaos noticeboard">
+          <p class="handwritten scrapbook-note">A few of our usual suspects.</p>
+          <figure class="guild-photo">
+            <img src="assets/Voidspire%20kill%20team.png" alt="Epic Chaos raiders gathered for a Season 1 Voidspire guild photo" width="1557" height="727">
+            <figcaption>Boss down. Group photo. Someone is still jumping.<small>From the Midnight Season 1 scrapbook</small></figcaption>
           </figure>
-
-          <div class="board-heading">
-            <img src="https://assets.rpglogs.com/img/warcraft/zones/zone-46.png" alt="" width="56" height="56">
-            <div>
-              <p>Season 2</p>
-              <strong>Raid desk</strong>
-            </div>
+          <div class="raid-ticket">
+            <p class="section-kicker">Fresh from the raid desk</p>
+            <div class="ticket-progress"><strong>1/8</strong><span>Mythic<br>Midnight Season 2</span></div>
+            <progress value="1" max="8" aria-label="Mythic raid progress: 1 of 8 bosses defeated">1 of 8</progress>
+            <p class="handwritten">One down. On to the next pull.</p>
+            <a href="/#recruitment" data-scroll-target="recruitment">6 Mythic openings · bench included <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
           </div>
-
-          <dl class="stat-grid">
-            <div>
-              <dt>Roster</dt>
-              <dd id="mythicRosterCount" data-sheet-count="mythic">23</dd>
-            </div>
-            <div>
-              <dt>Raid nights</dt>
-              <dd>3</dd>
-            </div>
-            <div>
-              <dt>Weekly hours</dt>
-              <dd>9</dd>
-            </div>
-            <div>
-              <dt>Season 2 progress</dt>
-              <dd>0/8</dd>
-            </div>
-          </dl>
+          <p class="scrapbook-roster"><b id="mythicRosterCount" data-sheet-count="mythic">23</b> on the Mythic roster. Plenty of personality.</p>
         </div>
       </section>
 
       <section class="section band-recruitment" id="recruitment" aria-labelledby="recruitmentTitle">
         <div class="section-inner recruitment-feature">
           <div class="recruitment-copy">
-            <p class="section-kicker">Recruitment</p>
-            <h2 id="recruitmentTitle">Raid hard.<br><span class="line-keep">Keep the good vibe.</span></h2>
+            <p class="section-kicker">The guild noticeboard / Recruitment</p>
+            <h2 id="recruitmentTitle">Your next raid crew<br><em>might be us.</em></h2>
             <p class="recruitment-lead">
               We recruit people, not just specs. Heroic raiders, Mythic trials, Mythic+ players,
               socials, and Discord regulars all have a place here if they bring the right attitude.
             </p>
             <div class="recruitment-pills" aria-label="Open recruitment lanes">
               <span>Heroic spots</span>
-              <span>Mythic bench</span>
+              <span>Mythic + bench spots</span>
               <span>Mythic+ players</span>
               <span>Socials welcome</span>
             </div>
           </div>
 
           <aside class="raid-times-panel" aria-label="Recruitment raid schedule">
-            <span class="raid-times-label">Raid Nights</span>
+            <span class="raid-times-label handwritten">Same time. Same chaos.</span>
             <div class="raid-time-line">
               <span>Heroic Team</span>
               <strong>Wed / Thu</strong>
@@ -184,12 +163,12 @@
               <p class="section-kicker">Current needs</p>
               <h3>Currently Recruiting</h3>
             </div>
-            <p>No full-time Mythic openings right now, but rotational raid spots are available.</p>
+            <p>6 Mythic roster openings in total, including bench spots. Bring your best spec and your good attitude.</p>
           </div>
 
           <div class="recruit-grid">
             <article class="need-card high">
-              <h3>High</h3>
+              <h3>High priority</h3>
               <ul class="recruit-list" aria-label="High priority recruitment">
                 <li class="recruit-need class-evoker">
                   <img src="https://wow.zamimg.com/images/wow/icons/large/classicon_evoker.jpg" alt="" width="32" height="32">
@@ -199,10 +178,18 @@
                   <img src="https://wow.zamimg.com/images/wow/icons/large/classicon_druid.jpg" alt="" width="32" height="32">
                   <span><b>Druid</b><em>Balance</em></span>
                 </li>
+                <li class="recruit-need class-death-knight">
+                  <img src="https://wow.zamimg.com/images/wow/icons/large/classicon_deathknight.jpg" alt="" width="32" height="32">
+                  <span><b>Death Knight</b><em>Frost</em></span>
+                </li>
+                <li class="recruit-need class-shaman">
+                  <img src="https://wow.zamimg.com/images/wow/icons/large/classicon_shaman.jpg" alt="" width="32" height="32">
+                  <span><b>Shaman</b><em>Elemental</em></span>
+                </li>
               </ul>
             </article>
             <article class="need-card low">
-              <h3>Low</h3>
+              <h3>Low priority</h3>
               <ul class="recruit-list" aria-label="Low priority recruitment">
                 <li class="recruit-need class-mage">
                   <img src="https://wow.zamimg.com/images/wow/icons/large/classicon_mage.jpg" alt="" width="32" height="32">
@@ -225,10 +212,11 @@
             <article class="need-card social">
               <h3>Openings</h3>
               <div class="recruit-openings">
-                <strong>0</strong>
-                <span>Full-time Mythic openings</span>
+                <strong>6</strong>
+                <span>Mythic roster openings<br><b>Bench included</b></span>
               </div>
-              <p>Rotational Mythic spots are available. Heroic raiders, Mythic+ players, and socials are still welcome.</p>
+              <p>Full-time and bench spots are included in these 6 openings. Heroic raiders, Mythic+ players, and socials are welcome too.</p>
+              <a class="button primary" href="https://forms.gle/5R5TwA4dQadTschp9">Put your name down <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
             </article>
           </div>
         </div>
@@ -271,7 +259,7 @@
         <div class="section-inner season-archive">
           <div class="season-archive-copy">
             <p class="section-kicker">Season 1 filed away</p>
-            <h2 id="seasonArchiveTitle">Season 1 is archived.</h2>
+            <h2 id="seasonArchiveTitle">The good-pull scrapbook.</h2>
             <p>
               Midnight Season 1 is done. Kill videos, screenshots, and roster records are kept here
               for reference while the front page moves on to Season 2.
@@ -301,7 +289,7 @@
         <div class="section-inner split">
           <div>
             <p class="section-kicker">About Epic Chaos</p>
-            <h2 id="aboutTitle">A social guild.<br>Locked in when raid starts.</h2>
+            <h2 id="aboutTitle">Come for the kills.<br><em>Stay for the people.</em></h2>
           </div>
           <div class="about-copy">
             <p>
@@ -321,7 +309,7 @@
         <div class="section-inner">
           <p class="section-kicker">Raid packet</p>
           <div class="section-head">
-            <h2 id="requirementsTitle">Rules and Requirements</h2>
+            <h2 id="requirementsTitle">Before we pull…</h2>
             <p>Loot council, raid prep, and clear communication keep both teams moving.</p>
           </div>
 
@@ -352,7 +340,7 @@
         <div class="section-inner resources-layout">
           <div>
             <p class="section-kicker">Resources</p>
-            <h2 id="resourcesTitle">Raid Tools</h2>
+            <h2 id="resourcesTitle">Check your bags.</h2>
           </div>
           <div class="resource-columns">
             <div>
@@ -390,7 +378,7 @@
         <div class="section-inner contact-layout">
           <div>
             <p class="section-kicker">Contact</p>
-            <h2 id="contactTitle">Embrace the Chaos.<br>Be Epic.</h2>
+            <h2 id="contactTitle">Save you a spot?</h2>
             <p>
               Questions and raid interest can go through Dragons or Nymue.
               Socials and Mythic+ players are welcome too.
@@ -420,6 +408,6 @@
       </button>
     </div>
 
-    <footer class="site-footer" aria-hidden="true"></footer>
+    <footer class="site-footer"><p>Epic Chaos · US-Zul'jin <span>Embrace the Chaos. Be Epic.</span></p></footer>
   </body>
 </html>

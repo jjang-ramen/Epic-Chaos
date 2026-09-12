@@ -1,0 +1,209 @@
+/* A shared guild noticeboard theme, loaded after each page's layout styles. */
+:root {
+  color-scheme: light;
+  --bg: #f4efdf;
+  --deep: #262b26;
+  --panel: #fffaf0;
+  --ink: #292e28;
+  --muted: #626354;
+  --paper: #fffaf0;
+  --paper-ink: #292e28;
+  --line: #b8b5a0;
+  --line-dark: #a6ac98;
+  --accent: #a73625;
+  --accent-bright: #a73625;
+  --green: #436147;
+  --band-textured: #f4efdf;
+  --band-muted: #e8ebdb;
+  --shadow: 5px 6px 0 #292e28;
+  --radius: 3px 7px 4px 6px;
+  --max: 1180px;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+body { background: var(--bg); line-height: 1.55; }
+::selection { background: #f1c25c; color: var(--ink); }
+h1, h2 { letter-spacing: -0.045em; }
+h2 em { color: var(--accent); font-weight: normal; }
+.handwritten { font-family: "Segoe Print", "Bradley Hand", cursive; font-weight: 700; }
+.site-header { background: #f4efdf; border-bottom: 2px solid var(--ink); backdrop-filter: none; }
+.brand strong { font-size: 1.3rem; }
+.brand-logo-img { transform: rotate(-6deg); border: 2px solid var(--ink); border-radius: 50%; }
+body .nav-links a { color: var(--ink); }
+body .nav-links .nav-cta { color: var(--ink); }
+body[class] .nav-links a[aria-current="page"] { background: #f1c25c; color: var(--ink); border-radius: 45% 7% 40% 10%; }
+body .nav-links a:hover { background: #e3decc; color: var(--ink); }
+body .nav-links .nav-apply { border: 2px solid var(--ink); background: var(--accent); color: #fffaf0; box-shadow: 2px 2px 0 var(--ink); }
+.eyebrow, .section-kicker { letter-spacing: 0.12em; font-size: 0.73rem; }
+.lead, .hero .lead, .awareness-hero .lead { color: var(--muted); }
+.button, .back-top, .tabs button, .segmented button {
+  border: 2px solid var(--ink); border-radius: var(--radius); background: var(--paper); color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink); transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.button.primary { background: var(--accent); color: #fffaf0; box-shadow: 3px 3px 0 var(--ink); }
+.button.ghost { border-color: var(--ink); }
+.button:hover, .back-top:hover, .tabs button:hover, .segmented button:hover {
+  transform: translate(-1px, -2px); background: #f1c25c; color: var(--ink); border-color: var(--ink); box-shadow: 4px 5px 0 var(--ink);
+}
+body :is(a, button, input):focus-visible { outline: 3px solid #26708c; outline-offset: 5px; }
+.tabs button.is-active, .segmented button.is-active { background: var(--ink); color: #fffaf0; border-color: var(--ink); }
+.hero { min-height: auto; padding: 64px 0 60px; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr); gap: 60px; }
+.hero-copy::before { content: none; }
+.home-page h1 { font-size: clamp(4rem, 7.5vw, 6.5rem); line-height: 0.94; margin-bottom: 24px; }
+.hero-tagline { display: block; margin-top: 20px; color: var(--accent); font-size: 0.47em; letter-spacing: -0.035em; line-height: 1.08; font-style: italic; }
+.hero .lead { font-size: 1.06rem; line-height: 1.75; max-width: 540px; }
+.hero-focus { margin: 24px 0; gap: 0; border-block: 1px solid var(--ink); }
+.hero-focus article { padding: 17px 10px; min-height: 102px; border: 0; background: none; border-radius: 0; overflow: visible; }
+.hero-focus article + article { border-left: 1px dashed var(--line); }
+.hero-focus article::before, .hero-focus article::after { content: none; }
+.hero-focus article:first-child { padding-left: 0; }
+.hero-focus span { color: var(--muted); font-size: 0.66rem; letter-spacing: 0.04em; }
+.hero-focus strong { color: var(--ink); font-size: 1.3rem; }
+.hero-focus small { color: var(--muted); font-size: 0.69rem; }
+.leader-strip { gap: 3px 14px; margin-bottom: 24px; }
+.leader-strip span { border: 0; padding: 0; min-height: 24px; color: var(--muted); background: none; font-size: 0.72rem; gap: 5px; }
+.leader-strip b { color: var(--ink); }
+.hero-actions { gap: 10px; }
+.hero-actions .button { font-size: 0.85rem; }
+.guild-scrapbook { min-width: 0; padding: 10px; }
+.scrapbook-note { margin: 0 0 18px; text-align: center; transform: rotate(-3deg); font-size: 1.15rem; }
+.guild-photo { margin: 0 0 25px; padding: 10px 10px 15px; background: var(--paper); border: 2px solid var(--ink); box-shadow: 6px 7px 0 #c6c8b5; transform: rotate(3deg); }
+.guild-photo img { width: 100%; height: auto; border: 1px solid var(--ink); }
+.guild-photo figcaption { padding: 12px 6px 0; font-family: "Segoe Print", cursive; font-size: 0.88rem; font-weight: 700; text-align: center; }
+.guild-photo small { display: block; margin-top: 4px; color: var(--muted); font: 0.65rem "Trebuchet MS", sans-serif; }
+.raid-ticket { width: 92%; margin: 0 auto; padding: 22px 25px; border: 2px solid var(--ink); background: #f1c25c; transform: rotate(-2deg); box-shadow: 5px 6px 0 var(--ink); }
+.raid-ticket .section-kicker { color: var(--ink); margin-bottom: 8px; }
+.ticket-progress { display: flex; align-items: center; gap: 18px; }
+.ticket-progress strong { font: 700 4.7rem/1 Georgia, serif; letter-spacing: -0.06em; }
+.ticket-progress span { font-size: 0.82rem; font-weight: bold; line-height: 1.5; }
+.raid-ticket progress { display: block; appearance: none; width: 100%; height: 10px; margin: 14px 0 9px; border: 1px solid var(--ink); background: #ffe2a0; border-radius: 0; }
+.raid-ticket progress::-webkit-progress-bar { background: #ffe2a0; }
+.raid-ticket progress::-webkit-progress-value { background: var(--ink); }
+.raid-ticket progress::-moz-progress-bar { background: var(--ink); }
+.raid-ticket .handwritten { margin: 0 0 16px; font-size: 0.9rem; }
+.raid-ticket a { border-top: 1px dashed var(--ink); padding-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: bold; text-underline-offset: 3px; }
+.raid-ticket a svg { width: 18px; height: 18px; flex-shrink: 0; }
+.scrapbook-roster { text-align: center; font-size: 0.72rem; color: var(--muted); margin: 22px 0 0; }
+main > section::before { border-color: var(--line); }
+.home-page main > .band-recruitment::before { background: #e2e8d4; border-block: 2px solid var(--ink); }
+.recruitment-feature { gap: 65px; }
+.recruitment-copy h2 { font-size: clamp(2.8rem, 4.5vw, 4.2rem); }
+.recruitment-lead { color: var(--muted); max-width: 570px; font-size: 1rem; }
+.recruitment-pills span { background: transparent; color: var(--ink); border: 1px solid var(--ink); border-radius: 100px; font-size: 0.74rem; }
+.raid-times-panel { background: var(--paper); border: 2px solid var(--ink); box-shadow: 5px 6px 0 #bcc4a9; transform: rotate(1.3deg); padding: 24px; }
+.raid-times-label { font-size: 1.15rem; text-transform: none; letter-spacing: 0; color: var(--accent); }
+.raid-time-line { border-top: 1px dashed var(--line); }
+.raid-time-line span { color: var(--muted); font-size: 0.67rem; grid-column: 1 / -1; }
+.raid-time-line strong { color: var(--ink); font-size: 1.6rem; grid-column: 1; }
+.raid-time-line b { color: var(--muted); font-size: 0.82rem; grid-column: 2; }
+.recruitment-section-head { margin-bottom: 24px; }
+.recruitment-section-head h3, .fit-title h3 { color: var(--ink); }
+.recruitment-section-head > p { color: var(--muted); font-size: 0.9rem; }
+.band-recruitment .need-card { border: 2px solid var(--ink); border-radius: var(--radius); background: var(--paper); padding: 24px; box-shadow: 4px 5px 0 #bcc4a9; }
+.band-recruitment .need-card.high { border-top: 7px solid var(--accent); }
+.band-recruitment .need-card.low { border-top: 7px solid #677b60; }
+.band-recruitment .need-card.social { background: #f1c25c; transform: rotate(1deg); }
+.need-card.high h3, .need-card.low h3, .need-card.social h3 { color: var(--ink); background: transparent; padding: 0; font-size: 1.08rem; }
+.band-recruitment .need-card p { color: var(--muted); font-size: 0.9rem; }
+.recruit-need { background: transparent; border-color: #d6d1be; }
+.recruit-need b { color: var(--ink); }
+.recruit-need em { color: var(--muted); }
+.recruit-need img { border: 1px solid var(--ink); border-radius: 50%; }
+.recruit-openings strong { color: var(--ink); font-size: 5.5rem; line-height: 1; }
+.recruit-openings { background: transparent; border: 0; padding-inline: 0; }
+.band-recruitment .need-card.social p { color: var(--ink); }
+.recruit-openings span { color: var(--ink); }
+.recruit-openings span b { font-size: 0.8rem; }
+.need-card.social .button { margin-top: 8px; }
+.fit-strip { border-top: 1px dashed var(--muted); padding-top: 25px; }
+.fit-grid-home article { background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 16px 0 0; box-shadow: none; }
+.fit-grid-home h3 { color: var(--ink); }
+.fit-grid-home p { color: var(--muted); }
+.season-archive h2 { font-size: 2.7rem; }
+.season-archive-copy p { color: var(--muted); }
+.season-archive-links a { background: var(--paper); border: 1px solid var(--ink); border-radius: var(--radius); box-shadow: 3px 4px 0 #c6c8b5; }
+.season-archive-links a:hover { background: #f1c25c; border-color: var(--ink); }
+.season-archive-links strong { color: var(--ink); }
+.season-archive-links span { color: var(--accent); }
+.season-archive-links small { color: var(--muted); }
+.about-copy { color: var(--muted); }
+.home-page main > .band-paper::before { background: #edcfb8; }
+main > section.band-dark::before { background: #292e28; }
+.band-dark { --ink: #fffaf0; --muted: #d3d5c5; --accent-bright: #f1c25c; color: var(--ink); }
+.band-dark .button { color: #292e28; border-color: #fffaf0; }
+.band-dark .button.primary { color: #fffaf0; }
+.band-dark .summary-pill { color: #292e28; }
+.band-dark .summary-pill b { color: #a73625; }
+.band-dark .tabs button { background: transparent; color: var(--ink); box-shadow: none; border-color: #a8ad9c; }
+.band-dark .tabs button.is-active, .band-dark .tabs button:hover { background: #f1c25c; color: #292e28; }
+.requirement-card { background: transparent; border: 1px dashed #8f9584; }
+.requirement-card h3 { color: #f1c25c; }
+.resource-columns h3 { color: var(--accent); }
+.home-page main > .band-contact::before { background: #e2e8d4; }
+.contact-grid div { background: var(--paper); border: 2px solid var(--ink); box-shadow: 4px 5px 0 #bcc4a9; }
+.contact-grid strong, .contact-grid a { color: var(--ink); }
+.back-top-wrap, .site-footer { background: var(--bg); border-color: var(--line); }
+.site-footer { padding: 20px 16px; }
+.site-footer p { width: min(var(--max), 100%); margin: auto; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 0.8rem; }
+.site-footer span { font-family: "Segoe Print", cursive; }
+/* Keep all existing page layouts and data controls in the same visual family. */
+.dashboard-tile, .log-card, .logs-hub-card, .officers-mark, .armory-mark, .glory-seal, .awareness-mark, .kill-card, .awareness-card {
+  --ink: #292e28; --muted: #626354; --accent-bright: #a73625;
+  background: var(--paper); border: 2px solid var(--ink); border-radius: var(--radius); box-shadow: 4px 5px 0 #c6c8b5;
+}
+.card-topline span { color: var(--accent); }
+.dashboard-tile strong, .log-card strong, .logs-hub-card strong, .officers-mark strong, .armory-mark strong, .glory-seal strong, .kill-info h3 { color: var(--ink); }
+.logs-hub-card small, .awareness-card p, .card-topline b { color: var(--muted); }
+.logs-hub-card:hover, .kill-card:hover { background: #e2e8d4; border-color: var(--ink); }
+.summary-pill { background: var(--paper); color: var(--ink); }
+.search-box { background: var(--paper); border: 2px solid var(--ink); }
+.search-box input { color: var(--ink); }
+.officer-card { border: 2px solid var(--ink); box-shadow: 5px 6px 0 #c6c8b5; padding: 8px; background: var(--paper); }
+.officer-card:nth-child(even) { transform: rotate(1deg); }
+.officer-card::before, .officer-card::after { content: none; }
+.officer-info { background: #292e28; --accent-bright: #f1c25c; }
+.officer-card img { filter: none; }
+.player-card, .raid-frame { background: #292e28; color: #fffaf0; --muted: #d3d5c5; --accent-bright: #f1c25c; border-color: #292e28; }
+.player-card { box-shadow: 3px 4px 0 #c6c8b5; }
+.player-card h3, .raid-frame-group li span { color: color-mix(in srgb, var(--class, #fffaf0) 75%, #fffaf0); }
+.raid-frame { padding: 24px; border: 2px solid #292e28; border-radius: var(--radius); box-shadow: 4px 5px 0 #c6c8b5; }
+.kill-modal { --accent-bright: #f1c25c; }
+.banner-plaque { --accent-bright: #f1c25c; }
+@media (max-width: 1100px) {
+  .hero { gap: 28px; }
+  .nav-links a { padding-inline: 9px; font-size: 0.83rem; }
+  .recruitment-feature { gap: 30px; }
+}
+@media (min-width: 761px) and (max-width: 1020px) {
+  .hero { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+  .hero-focus { grid-template-columns: 1fr; }
+  .hero-focus article { min-height: auto; padding: 10px 0; grid-template-columns: 1fr 1fr; }
+  .hero-focus small { grid-column: 2; }
+  .hero-focus article + article { border-left: 0; border-top: 1px dashed var(--line); }
+}
+@media (max-width: 760px) {
+  .nav-links { background: var(--paper); border: 2px solid var(--ink); box-shadow: var(--shadow); }
+  .icon-button { display: inline-flex; border: 2px solid var(--ink); }
+  .hero { grid-template-columns: 1fr; padding: 36px 0 40px; gap: 28px; }
+  .home-page h1 { font-size: clamp(3.7rem, 12vw, 5.5rem); }
+  .hero-tagline { font-size: 0.5em; }
+  .hero-focus { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hero-focus article { padding: 12px 8px; min-height: 110px; }
+  .hero-focus strong { font-size: 1.05rem; }
+  .hero-focus small { font-size: 0.65rem; }
+  .guild-scrapbook { max-width: 490px; width: 100%; margin: auto; }
+  .guild-photo, .raid-ticket, .raid-times-panel, .band-recruitment .need-card.social { transform: none; }
+  .raid-ticket { width: 100%; }
+  .recruitment-feature { gap: 30px; }
+  .recruitment-copy h2 { font-size: clamp(2.4rem, 9vw, 3.4rem); }
+  .raid-time-line { grid-template-columns: 1fr; }
+  .raid-time-line b { grid-column: 1; }
+  .recruitment-section-head { gap: 12px; }
+  .recruit-grid { gap: 20px; }
+  .recruitment-section-head h3, .fit-title h3, .season-archive h2 { font-size: 2.1rem; }
+  .site-footer p { flex-direction: column; text-align: center; gap: 4px; }
+  .raid-frame { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
