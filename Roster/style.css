@@ -152,13 +152,80 @@
   display: none;
 }
 
-.player-card .team-name {
-  color: var(--accent-bright);
+/* Muted class inks keep the roster in the site's paper palette. */
+.roster-page .class-death-knight { --player-color: #923747; }
+.roster-page .class-demon-hunter { --player-color: #75408b; }
+.roster-page .class-druid { --player-color: #9b4e19; }
+.roster-page .class-evoker { --player-color: #286958; }
+.roster-page .class-hunter { --player-color: #52652b; }
+.roster-page .class-mage { --player-color: #286778; }
+.roster-page .class-monk { --player-color: #276b50; }
+.roster-page .class-paladin { --player-color: #94466e; }
+.roster-page .class-priest { --player-color: #62615a; }
+.roster-page .class-rogue { --player-color: #756219; }
+.roster-page .class-shaman { --player-color: #365f94; }
+.roster-page .class-warlock { --player-color: #63518f; }
+.roster-page .class-warrior { --player-color: #795b37; }
+
+.roster-page .player-card {
+  --muted: #626354;
+  background: #fffaf0;
+  color: #292e28;
+  border: 1px solid #c8c4b3;
+  border-left: 4px solid var(--player-color, #62615a);
+  box-shadow: 2px 3px 0 #d9d5c4;
 }
 
-.player-card.class-evoker p {
-  color: var(--class);
-  font-weight: 800;
+.roster-page .player-card::before,
+.roster-page .player-card::after {
+  content: none;
+}
+
+.roster-page .player-card h3 {
+  color: var(--player-color, #292e28);
+}
+
+.roster-page .player-card p {
+  color: #626354;
+}
+
+.roster-page .player-card .ilvl {
+  background: #eee8d9;
+  color: #42463d;
+  padding-inline: 0.4rem;
+}
+
+.roster-page .player-card .chip {
+  background: #f0ecdf;
+  color: #595d51;
+  border: 1px solid #e0dccd;
+}
+
+.roster-page .player-card .team-name {
+  background: transparent;
+  color: #595d51;
+}
+
+.roster-page .player-card .roster-status::after {
+  content: none;
+}
+
+.roster-page .player-card .status-main {
+  background: #e4ecdd;
+  border-color: #c6d4bc;
+  color: #405838;
+}
+
+.roster-page .player-card .status-bench {
+  background: #f4e8cc;
+  border-color: #ddcda6;
+  color: #755723;
+}
+
+.roster-page .player-card .status-trial {
+  background: #ece5f0;
+  border-color: #d5c6de;
+  color: #68477d;
 }
 
 .player-card header > div {
