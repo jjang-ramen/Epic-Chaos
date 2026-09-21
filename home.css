@@ -476,6 +476,10 @@
   transition: border-color 150ms ease, background 150ms ease;
 }
 
+.season-archive-links a:first-child {
+  grid-column: 1 / -1;
+}
+
 .season-archive-links a:hover {
   border-color: var(--accent-bright);
   background: var(--accent-soft);
