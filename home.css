@@ -1,0 +1,698 @@
+/* Homepage: noticeboard, recruitment, season links and raid information. */
+
+/* Welcome and scrapbook */
+.hero {
+  width: min(var(--max), calc(100% - 32px));
+  margin-inline: auto;
+  padding: 64px 0 60px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(4rem, 7.5vw, 6.5rem);
+  line-height: 0.94;
+  margin-bottom: 24px;
+}
+
+.hero-tagline {
+  display: block;
+  margin-top: 20px;
+  color: var(--accent-bright);
+  font-size: 0.47em;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  font-style: italic;
+}
+
+.hero .lead {
+  max-width: 540px;
+  font-size: 1.06rem;
+  line-height: 1.75;
+}
+
+.hero-focus {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 24px 0;
+  border-block: 1px solid var(--line);
+}
+
+.hero-focus article {
+  display: grid;
+  align-content: center;
+  gap: 0.25rem;
+  min-height: 102px;
+  padding: 17px 10px;
+}
+
+.hero-focus article:first-child {
+  padding-left: 0;
+}
+
+.hero-focus article + article {
+  border-left: 1px dashed var(--line);
+}
+
+.hero-focus span {
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hero-focus strong {
+  font-size: 1.3rem;
+}
+
+.hero-focus small {
+  color: var(--muted);
+  font-size: 0.69rem;
+}
+
+.leader-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 14px;
+  margin-bottom: 24px;
+  font-size: 0.72rem;
+}
+
+.leader-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 24px;
+  color: var(--muted);
+}
+
+.leader-strip b {
+  color: var(--ink);
+}
+
+.hero-actions .button {
+  font-size: 0.85rem;
+}
+
+.guild-scrapbook {
+  min-width: 0;
+  padding: 10px;
+}
+
+.scrapbook-note {
+  margin: 0 0 18px;
+  text-align: center;
+  transform: rotate(-3deg);
+  font-size: 1.15rem;
+}
+
+.guild-photo {
+  margin: 0 0 25px;
+  padding: 10px 10px 15px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  transform: rotate(2deg);
+}
+
+.guild-photo img {
+  width: 100%;
+  height: auto;
+}
+
+.guild-photo figcaption {
+  padding: 12px 6px 0;
+  font: 700 0.88rem var(--handwriting);
+  text-align: center;
+}
+
+.guild-photo small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font: 0.7rem var(--body-font);
+}
+
+.raid-ticket {
+  width: 92%;
+  margin: auto;
+  padding: 22px 25px;
+  border: 1px solid var(--accent-bright);
+  background: var(--accent-dark);
+  transform: rotate(-1deg);
+  box-shadow: var(--shadow);
+}
+
+.raid-ticket .section-kicker {
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.ticket-progress {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.ticket-progress strong {
+  font: 700 4.7rem/1 var(--display);
+  letter-spacing: -0.06em;
+}
+
+.ticket-progress span {
+  font-size: 0.82rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.raid-ticket progress {
+  display: block;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  margin: 14px 0 9px;
+  border: 0;
+  background: #450b06;
+}
+
+.raid-ticket progress::-webkit-progress-bar {
+  background: #450b06;
+}
+
+.raid-ticket progress::-webkit-progress-value {
+  background: var(--ink);
+}
+
+.raid-ticket progress::-moz-progress-bar {
+  background: var(--ink);
+}
+
+.raid-ticket .handwritten {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+}
+
+.raid-ticket a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px dashed rgb(255 255 255 / 35%);
+  font-size: 0.78rem;
+  font-weight: bold;
+  text-underline-offset: 3px;
+}
+
+.raid-ticket a svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.scrapbook-roster {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 22px 0 0;
+}
+
+/* Recruitment */
+.recruitment-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(310px, 420px);
+  gap: 60px;
+  align-items: center;
+}
+
+.recruitment-copy h2 {
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+}
+
+.recruitment-lead {
+  max-width: 570px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.recruitment-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.recruitment-pills span {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 0.78rem;
+}
+
+.raid-times-panel {
+  display: grid;
+  gap: 0.8rem;
+  padding: 24px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.raid-times-label {
+  font: 700 1.15rem var(--handwriting);
+  color: var(--accent-bright);
+}
+
+.raid-time-line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.4rem 0.9rem;
+  border-top: 1px dashed var(--line);
+  padding-top: 0.8rem;
+}
+
+.raid-time-line span {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.raid-time-line strong {
+  font: 700 1.6rem/1.1 var(--display);
+}
+
+.raid-time-line b {
+  align-self: end;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.recruitment-board {
+  margin-top: 3rem;
+}
+
+.recruitment-section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.recruitment-section-head h3, .fit-title h3 {
+  margin-bottom: 0;
+  font: 700 clamp(1.8rem, 3vw, 2.8rem)/1.1 var(--display);
+}
+
+.recruitment-section-head > p {
+  max-width: 470px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.recruit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.need-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.need-card.high {
+  border-top: 5px solid var(--accent);
+}
+
+.need-card.low {
+  border-top: 5px solid var(--bronze);
+}
+
+.need-card.social {
+  background: var(--accent-dark);
+  border-color: var(--accent-bright);
+}
+
+.need-card h3 {
+  font-size: 1.08rem;
+}
+
+.need-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.need-card.social p {
+  color: var(--ink);
+}
+
+.recruit-list {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recruit-need {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.recruit-need img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.recruit-need span {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.recruit-need b {
+  font-size: 0.94rem;
+}
+
+.recruit-need em {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-style: normal;
+}
+
+.recruit-openings {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.recruit-openings strong {
+  font: 700 5.5rem/1 var(--display);
+}
+
+.recruit-openings span {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.need-card.social .button {
+  background: var(--bg);
+  margin-top: 8px;
+}
+
+.fit-strip {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.32fr) 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  border-top: 1px dashed var(--line);
+  padding-top: 25px;
+}
+
+.fit-grid-home {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.fit-grid-home article {
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.fit-grid-home p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Seasons, guild information and contact */
+.season-archive, .split, .resources-layout, .contact-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.season-archive-copy p, .about-copy {
+  color: var(--muted);
+}
+
+.season-archive-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.season-archive-links a {
+  display: grid;
+  align-content: end;
+  gap: 0.35rem;
+  min-height: 156px;
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  text-decoration: none;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.season-archive-links a:hover {
+  border-color: var(--accent-bright);
+  background: var(--accent-soft);
+}
+
+.season-archive-links span {
+  color: var(--accent-bright);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.season-archive-links strong {
+  font: 700 1.65rem/1.1 var(--display);
+}
+
+.season-archive-links small {
+  color: var(--muted);
+}
+
+.about-copy {
+  columns: 2 280px;
+  line-height: 1.7;
+}
+
+.requirement-panel, .resource-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.requirement-card {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.requirement-card h3, .resource-columns h3 {
+  color: var(--accent-bright);
+}
+
+.requirement-card ul, .check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.requirement-card li, .check-list li {
+  position: relative;
+  padding-left: 1rem;
+  margin: 0.6rem 0;
+  line-height: 1.5;
+}
+
+.requirement-card li::before, .check-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--bronze);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-grid div {
+  min-width: 0;
+  min-height: 148px;
+  display: grid;
+  align-content: center;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.contact-grid span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contact-grid strong, .contact-grid a {
+  overflow-wrap: anywhere;
+  font-size: 1.02rem;
+}
+
+/* Homepage responsive layout */
+@media (max-width: 1100px) {
+  .hero {
+    gap: 28px;
+  }
+
+  .recruitment-feature {
+    gap: 30px;
+  }
+
+}
+
+@media (min-width: 761px) and (max-width: 1020px) {
+  .hero-focus {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-focus article {
+    min-height: auto;
+    padding: 10px 0;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-focus small {
+    grid-column: 2;
+  }
+
+  .hero-focus article + article {
+    border-left: 0;
+    border-top: 1px dashed var(--line);
+  }
+
+}
+
+@media (max-width: 1020px) {
+  .recruitment-feature, .fit-strip, .season-archive, .split, .resources-layout, .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .raid-times-panel {
+    width: min(100%, 680px);
+  }
+
+  .recruit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .need-card.social {
+    grid-column: 1 / -1;
+  }
+
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 36px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.7rem, 12vw, 5.5rem);
+  }
+
+  .hero-tagline {
+    font-size: 0.5em;
+  }
+
+  .hero-focus article {
+    padding: 12px 8px;
+    min-height: 110px;
+  }
+
+  .hero-focus strong {
+    font-size: 1.05rem;
+  }
+
+  .hero-focus small {
+    font-size: 0.65rem;
+  }
+
+  .guild-scrapbook {
+    max-width: 490px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .guild-photo, .raid-ticket {
+    transform: none;
+  }
+
+  .raid-ticket {
+    width: 100%;
+  }
+
+  .recruitment-copy h2 {
+    font-size: clamp(2.4rem, 9vw, 3.4rem);
+  }
+
+  .recruitment-section-head {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .recruit-grid, .fit-grid-home, .requirement-panel, .resource-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .about-copy {
+    columns: 1;
+  }
+
+}
+
+@media (max-width: 440px) {
+  .season-archive-links, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .raid-time-line {
+    grid-template-columns: 1fr;
+  }
+
+}

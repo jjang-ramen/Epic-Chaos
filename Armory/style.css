@@ -1,40 +1,12 @@
-.armory-page .nav-links a[aria-current="page"] {
-  background: rgba(143, 47, 42, 0.2);
-  color: #fff0ee;
-}
+/* Shared by both season video pages. */
 
-.armory-page h1 {
-  max-width: 680px;
-  font-size: clamp(3.2rem, 8vw, 6.8rem);
-}
-
-.armory-page .lead {
-  max-width: 680px;
-}
-
-.armory-hero {
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-  padding: clamp(2.4rem, 5vw, 4.8rem) 0 clamp(2rem, 4vw, 3.2rem);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(290px, 0.45fr);
-  align-items: center;
-  gap: clamp(1.5rem, 4vw, 3rem);
-}
-
+/* Season mark and video shelf */
 .armory-mark {
-  min-height: 240px;
+  min-height: 220px;
   display: grid;
-  grid-template-columns: minmax(116px, 0.72fr) minmax(0, 1fr);
+  grid-template-columns: minmax(96px, 0.7fr) minmax(0, 1fr);
   align-items: center;
   gap: 1rem;
-  border: 1px solid rgba(214, 64, 53, 0.32);
-  border-radius: var(--radius);
-  padding: 1.15rem;
-  background:
-    linear-gradient(145deg, rgba(143, 47, 42, 0.07), rgba(61, 113, 110, 0.04)),
-    rgba(255, 255, 255, 0.034);
-  box-shadow: none;
 }
 
 .armory-mark img {
@@ -42,141 +14,83 @@
   height: auto;
   aspect-ratio: 1;
   object-fit: contain;
-  border: 1px solid rgba(214, 64, 53, 0.34);
-  border-radius: var(--radius);
-  background: #000;
-}
-
-.armory-mark span {
-  color: var(--accent-bright);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.armory-mark strong {
-  display: block;
-  margin-top: 0.24rem;
-  color: #fff7f0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
-  line-height: 0.95;
-}
-
-.armory-mark small {
-  display: block;
-  margin-top: 0.55rem;
-  color: var(--muted);
-  font-weight: 800;
-}
-
-.armory-head {
-  align-items: end;
 }
 
 .kill-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.35rem);
+  gap: 1.25rem;
 }
 
 .kill-card {
   overflow: hidden;
   display: grid;
   grid-template-rows: auto 1fr;
-  border: 1px solid rgba(214, 64, 53, 0.24);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(145deg, rgba(143, 47, 42, 0.052), rgba(61, 113, 110, 0.03)),
-    rgba(255, 255, 255, 0.034);
-  box-shadow: none;
   cursor: pointer;
-  transition: border-color 180ms ease, background 180ms ease;
+  transition: border-color 150ms ease, background 150ms ease;
 }
 
-.kill-card:hover,
-.kill-card:focus-within {
-  border-color: rgba(226, 87, 77, 0.48);
-  background:
-    linear-gradient(145deg, rgba(143, 47, 42, 0.08), rgba(61, 113, 110, 0.04)),
-    rgba(255, 255, 255, 0.038);
+.kill-card:hover {
+  border-color: var(--accent-bright);
+  background: var(--accent-soft);
 }
 
 .youtube-preview {
   position: relative;
-  background: #030507;
-}
-
-.watch-button {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 3;
-  transform: translate(-50%, -50%);
-  min-height: 42px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  border: 1px solid rgba(226, 87, 77, 0.3);
-  border-radius: 999px;
-  padding: 0.48rem 0.78rem;
-  background: rgba(5, 4, 4, 0.78);
-  color: #fff0ee;
-  font: inherit;
-  font-weight: 900;
-  backdrop-filter: none;
-  cursor: pointer;
-}
-
-.watch-button svg {
-  width: 17px;
-  height: 17px;
-  color: var(--accent-bright);
-}
-
-.watch-button:hover,
-.watch-button:focus-visible {
-  background: rgba(60, 26, 20, 0.88);
-  outline: none;
+  background: var(--deep);
 }
 
 .youtube-preview::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 2;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.28));
+  background: linear-gradient(transparent, rgb(0 0 0 / 30%));
   pointer-events: none;
 }
 
 .youtube-preview img {
-  display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  background: #000;
+}
+
+.watch-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--accent-bright);
+  border-radius: 100px;
+  background: rgb(0 0 0 / 85%);
+  font-weight: 800;
+}
+
+.watch-button svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-bright);
 }
 
 .kill-info {
-  min-height: 142px;
-  padding: clamp(1rem, 2vw, 1.2rem);
+  padding: 1.25rem;
 }
 
-.kill-info span {
+.kill-info span, .modal-info span {
   color: var(--accent-bright);
   font-size: 0.75rem;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .kill-info h3 {
-  margin: 0.28rem 0 0.4rem;
-  color: #fff7f0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.05;
+  margin: 0.35rem 0;
+  font: 700 clamp(1.5rem, 3vw, 2rem)/1.1 var(--display);
 }
 
 .kill-info p {
@@ -184,120 +98,96 @@
   color: var(--muted);
 }
 
-@media (min-width: 901px) {
-  .kill-card:nth-child(odd):last-child {
-    grid-column: 1 / -1;
-    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
-    grid-template-rows: auto;
-  }
-
-  .kill-card:nth-child(odd):last-child .youtube-preview img {
-    height: 100%;
-  }
-
-  .kill-card:nth-child(odd):last-child .kill-info {
-    min-height: auto;
-    align-content: center;
-    display: grid;
-  }
-}
-
+/* Video dialog */
 .kill-modal {
-  width: min(1120px, calc(100vw - 28px));
-  max-height: calc(100vh - 28px);
-  border: 1px solid rgba(214, 64, 53, 0.38);
-  border-radius: var(--radius);
+  width: min(1120px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
   padding: 0;
-  background: #050506;
-  color: #fff7f0;
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink);
+  box-shadow: 0 18px 48px rgb(0 0 0 / 60%);
 }
 
 .kill-modal::backdrop {
-  background: rgba(0, 0, 0, 0.78);
-  backdrop-filter: blur(4px);
+  background: rgb(0 0 0 / 85%);
 }
 
 .kill-modal-panel {
   position: relative;
-  display: grid;
-  gap: 0;
-  background:
-    linear-gradient(145deg, rgba(143, 47, 42, 0.08), rgba(61, 113, 110, 0.04)),
-    #07090d;
+  padding-top: 56px;
 }
 
 .modal-close {
   position: absolute;
-  top: 0.72rem;
-  right: 0.72rem;
-  z-index: 5;
-  width: 42px;
-  height: 42px;
-  display: inline-grid;
+  top: 6px;
+  right: 8px;
+  z-index: 1;
+  display: grid;
   place-items: center;
-  border: 1px solid rgba(226, 87, 77, 0.24);
-  border-radius: 999px;
-  background: rgba(5, 4, 4, 0.8);
-  color: #fff0ee;
-  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.modal-close:hover {
+  background: var(--accent);
 }
 
 .modal-close svg {
-  width: 19px;
-  height: 19px;
+  width: 22px;
+  height: 22px;
 }
 
 .modal-youtube-frame {
-  position: relative;
   background: #000;
 }
 
 .modal-youtube-frame iframe {
   display: block;
   width: 100%;
-  height: min(72vh, 720px);
-  aspect-ratio: 16 / 9;
+  height: min(56.25vw, 60dvh);
   border: 0;
   background: #000;
 }
 
-.modal-close:hover,
-.modal-close:focus-visible {
-  background: rgba(60, 26, 20, 0.9);
-  outline: none;
-}
-
 .modal-info {
-  padding: 1rem 1.1rem 1.15rem;
-}
-
-.modal-info span {
-  color: var(--accent-bright);
-  font-size: 0.75rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  padding: 1rem 1.25rem 1.25rem;
 }
 
 .modal-info h2 {
-  margin: 0.24rem 0 0;
-  color: #fff7f0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  line-height: 1.05;
+  margin: 0.3rem 0 0;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-@media (max-width: 900px) {
-  .armory-hero,
+@media (min-width: 901px) {
+  .kill-card:only-child {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    grid-template-rows: auto;
+  }
+
+  .kill-card:only-child .kill-info {
+    align-self: center;
+  }
+
+}
+
+@media (max-width: 760px) {
   .kill-grid {
     grid-template-columns: 1fr;
   }
+
 }
 
-@media (max-width: 620px) {
+@media (max-width: 440px) {
   .armory-mark {
-    grid-template-columns: 1fr;
+    grid-template-columns: 96px 1fr;
     min-height: auto;
   }
+
 }

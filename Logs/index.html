@@ -6,15 +6,15 @@
     <title>Epic Chaos Logs</title>
     <meta
       name="description"
-      content="Epic Chaos Warcraft Logs reports and the Midnight Season 1 kill archive."
+      content="Epic Chaos Warcraft Logs reports, Midnight Season 2 kill videos, and the Season 1 archive."
     >
     <link rel="icon" type="image/png" href="../assets/epic-chaos-logo-v5.png">
     <link rel="apple-touch-icon" href="../assets/epic-chaos-logo-v5.png">
-    <link rel="stylesheet" href="../style.css?v=42">
-    <link rel="stylesheet" href="style.css?v=5">
-    <link rel="stylesheet" href="../theme.css?v=1">
+    <link rel="stylesheet" href="../theme.css?v=20260920-1">
+    <link rel="stylesheet" href="../style.css?v=20260920-1">
+    <link rel="stylesheet" href="style.css?v=20260920-1">
     <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
-    <script defer src="script.js?v=9"></script>
+    <script defer src="script.js?v=10"></script>
   </head>
   <body class="logs-page">
     <a class="skip-link" href="#content">Skip to content</a>
@@ -52,7 +52,7 @@
           <p class="eyebrow">Warcraft Logs / Season archive</p>
           <h1 id="logsPageTitle">Raid Logs</h1>
           <p class="lead">
-            Current public reports stay up front. Season 1 kill videos and records are filed below.
+            Current public reports, Season 2 kill videos, and the Season 1 archive, all in one place.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://www.warcraftlogs.com/guild/us/zuljin/epic%20chaos">
@@ -62,6 +62,10 @@
             <a class="button" href="/Armory/">
               <i data-lucide="video"></i>
               Season 1 Videos
+            </a>
+            <a class="button" href="/Armory/Season-2/">
+              <i data-lucide="video"></i>
+              Season 2 Videos
             </a>
             <a class="button" href="https://www.youtube.com/@EpicChaos-Zuljin">
               <i data-lucide="youtube"></i>
@@ -85,12 +89,18 @@
         <div class="section-inner">
           <div class="section-head">
             <div>
-              <p class="section-kicker">Season 1 archive</p>
-              <h2 id="logsHubTitle">Season 1 is archived.</h2>
+              <p class="section-kicker">Kills, reports &amp; archives</p>
+              <h2 id="logsHubTitle">Every pull has a story.</h2>
             </div>
           </div>
 
           <div class="logs-hub-grid">
+            <a class="logs-hub-card" href="/Armory/Season-2/">
+              <i data-lucide="video"></i>
+              <span>Season 2</span>
+              <strong>Latest Kills</strong>
+              <small>Current Mythic kill videos, starting with Nek'zali.</small>
+            </a>
             <a class="logs-hub-card" href="https://www.warcraftlogs.com/guild/reports-list/709946">
               <i data-lucide="file-text"></i>
               <span>Warcraft Logs</span>
@@ -114,12 +124,12 @@
       </section>
 
       <section class="section band-dark" id="logs" aria-labelledby="logsTitle">
-        <div class="section-inner logs-layout">
+        <div class="section-inner">
           <div>
             <p class="section-kicker">Guild profile</p>
             <h2 id="logsTitle">Reports and Archive</h2>
             <p>
-              Use these links for the guild profile, recent reports, character pages, and archived progression.
+              Use these links for the guild profile, character pages, and archived progression.
             </p>
 
             <div class="progress-list">
@@ -146,12 +156,6 @@
               </a>
             </div>
           </div>
-
-          <aside class="reports-panel" aria-labelledby="reportsTitle">
-            <h3 id="reportsTitle">Recent Reports</h3>
-            <div id="reportsList"></div>
-            <a class="text-link" href="https://www.warcraftlogs.com/guild/reports-list/709946">View all reports</a>
-          </aside>
         </div>
       </section>
     </main>
@@ -163,6 +167,8 @@
       </button>
     </div>
 
-    <footer class="site-footer" aria-hidden="true"></footer>
+    <footer class="site-footer">
+      <p><a href="/">Epic Chaos &middot; US-Zul'jin</a><span>Embrace the Chaos. Be Epic.</span></p>
+    </footer>
   </body>
 </html>

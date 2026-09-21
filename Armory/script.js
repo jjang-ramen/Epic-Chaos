@@ -10,8 +10,8 @@ const modalClose = document.querySelector(".modal-close");
 const sectionTargetStoreKey = "epicChaosScrollTarget";
 let muteInterval = null;
 
-if (window.location.pathname.endsWith("/Armory/index.html")) {
-  window.history.replaceState(null, "", "/Armory/");
+if (window.location.pathname.endsWith("/index.html")) {
+  window.history.replaceState(null, "", window.location.pathname.replace(/index\.html$/, "") + window.location.search + window.location.hash);
 }
 
 sectionLinks.forEach((link) => {

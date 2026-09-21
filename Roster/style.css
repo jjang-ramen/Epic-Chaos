@@ -1,131 +1,90 @@
-.roster-page .nav-links a[aria-current="page"] {
-  background: rgba(143, 47, 42, 0.2);
-  color: #fff0ee;
+/* Roster layout and player cards. Shared controls are in /style.css. */
+
+/* Hero and summary */
+.roster-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
 }
 
 .roster-page h1 {
-  max-width: 680px;
   font-size: clamp(3.1rem, 7vw, 6.1rem);
-}
-
-.roster-page .lead {
-  max-width: 640px;
-}
-
-.roster-hero {
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-  padding: clamp(2.1rem, 4vw, 4rem) 0 clamp(1.7rem, 3vw, 2.6rem);
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.8fr);
-  align-items: center;
-  gap: clamp(2rem, 5vw, 4rem);
 }
 
 .roster-dashboard {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-}
-
-.roster-dashboard-wrap {
-  display: grid;
   gap: 0.85rem;
-  min-width: 0;
 }
 
 .dashboard-tile {
   min-height: 112px;
   display: grid;
   align-content: center;
-  gap: 0.25rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  gap: 0.3rem;
   padding: 1rem;
-  background:
-    linear-gradient(145deg, rgba(143, 47, 42, 0.075), rgba(61, 113, 110, 0.045)),
-    rgba(255, 255, 255, 0.055);
 }
 
 .dashboard-tile span {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 
 .dashboard-tile strong {
-  color: #fff7f0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font: 700 clamp(1.7rem, 4vw, 2.5rem) var(--display);
 }
 
-.roster-status {
-  position: relative;
-  min-width: 64px;
-  justify-content: center;
-  overflow: hidden;
-  padding-inline: 0.62rem;
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(0, 0, 0, 0.26);
-  color: #f3e6d7;
-  font-size: 0.78rem;
-  font-weight: 850;
-  box-shadow: none;
-}
-
-.roster-status::after {
-  content: "";
-  position: absolute;
-  left: 0.5rem;
-  right: 0.5rem;
-  bottom: 0.35rem;
-  height: 1px;
-  background: var(--status-accent, rgba(214, 64, 53, 0.72));
-  opacity: 0.62;
-}
-
-.status-main {
-  --status-accent: rgba(63, 143, 134, 0.88);
-  border-color: rgba(63, 143, 134, 0.36);
-  background: rgba(63, 143, 134, 0.12);
-  color: #dffbf5;
-}
-
-.status-bench {
-  --status-accent: rgba(214, 64, 53, 0.86);
-  border-color: rgba(214, 64, 53, 0.36);
-  background: rgba(214, 64, 53, 0.11);
-  color: #ffd7d3;
-}
-
-.status-trial {
-  --status-accent: rgba(109, 124, 145, 0.9);
-  border-color: rgba(109, 124, 145, 0.42);
-  background: rgba(109, 124, 145, 0.14);
-  color: #e0e7f1;
-}
-
+/* Filters and team sections */
 .roster-controls-section {
   padding: 1.2rem 0;
-  border-block: 1px solid var(--line);
-  background: rgba(0, 0, 0, 0.22);
-}
-
-.team-section {
-  scroll-margin-top: calc(var(--header) + 24px);
 }
 
 .roster-control-row {
   display: grid;
-  grid-template-columns: auto auto minmax(220px, 1fr);
+  grid-template-columns: auto auto minmax(200px, 1fr);
   align-items: center;
   gap: 0.8rem;
-  min-width: 0;
 }
 
-.roster-search {
-  justify-self: stretch;
+.search-box {
+  min-width: 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.search-box:focus-within {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.search-box svg {
+  width: 18px;
+  height: 18px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.search-box input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.search-box input::placeholder {
+  color: var(--muted);
+}
+
+.team-section {
+  scroll-margin-top: calc(var(--header) + 24px);
 }
 
 .roster-team-head {
@@ -133,165 +92,152 @@
 }
 
 .team-summary {
-  min-width: min(100%, 360px);
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.team-grid {
+.roster-grid {
+  display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
 }
 
-.team-section.is-hidden {
-  display: none;
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 1.5rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  text-align: center;
 }
 
-.player-card.is-hidden {
-  display: none;
+/* Player cards: class color is only used for names and the edge */
+.player-card {
+  --player-accent: color-mix(in srgb, var(--player-color, #62615a) 50%, var(--ink));
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--player-accent);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
 }
 
-/* Muted class inks keep the roster in the site's paper palette. */
-.roster-page .class-death-knight { --player-color: #923747; }
-.roster-page .class-demon-hunter { --player-color: #75408b; }
-.roster-page .class-druid { --player-color: #9b4e19; }
-.roster-page .class-evoker { --player-color: #286958; }
-.roster-page .class-hunter { --player-color: #52652b; }
-.roster-page .class-mage { --player-color: #286778; }
-.roster-page .class-monk { --player-color: #276b50; }
-.roster-page .class-paladin { --player-color: #94466e; }
-.roster-page .class-priest { --player-color: #62615a; }
-.roster-page .class-rogue { --player-color: #756219; }
-.roster-page .class-shaman { --player-color: #365f94; }
-.roster-page .class-warlock { --player-color: #63518f; }
-.roster-page .class-warrior { --player-color: #795b37; }
-
-.roster-page .player-card {
-  --muted: #626354;
-  background: #fffaf0;
-  color: #292e28;
-  border: 1px solid #c8c4b3;
-  border-left: 4px solid var(--player-color, #62615a);
-  box-shadow: 2px 3px 0 #d9d5c4;
-}
-
-.roster-page .player-card::before,
-.roster-page .player-card::after {
-  content: none;
-}
-
-.roster-page .player-card h3 {
-  color: var(--player-color, #292e28);
-}
-
-.roster-page .player-card p {
-  color: #626354;
-}
-
-.roster-page .player-card .ilvl {
-  background: #eee8d9;
-  color: #42463d;
-  padding-inline: 0.4rem;
-}
-
-.roster-page .player-card .chip {
-  background: #f0ecdf;
-  color: #595d51;
-  border: 1px solid #e0dccd;
-}
-
-.roster-page .player-card .team-name {
-  background: transparent;
-  color: #595d51;
-}
-
-.roster-page .player-card .roster-status::after {
-  content: none;
-}
-
-.roster-page .player-card .status-main {
-  background: #e4ecdd;
-  border-color: #c6d4bc;
-  color: #405838;
-}
-
-.roster-page .player-card .status-bench {
-  background: #f4e8cc;
-  border-color: #ddcda6;
-  color: #755723;
-}
-
-.roster-page .player-card .status-trial {
-  background: #ece5f0;
-  border-color: #d5c6de;
-  color: #68477d;
+.player-card header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.8rem;
 }
 
 .player-card header > div {
   min-width: 0;
 }
 
-.player-card h3,
-.player-card p {
+.player-card h3 {
+  margin-bottom: 0.25rem;
+  color: var(--player-accent);
+  font-size: 1.04rem;
   overflow-wrap: anywhere;
 }
 
-.empty-state {
-  grid-column: 1 / -1;
-  border: 1px dashed var(--line);
-  border-radius: var(--radius);
-  padding: 1.4rem;
+.player-card p {
+  margin-bottom: 0;
   color: var(--muted);
-  text-align: center;
+  overflow-wrap: anywhere;
 }
 
+.ilvl {
+  min-width: 44px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.4rem;
+  border-radius: 4px;
+  background: var(--panel-raised);
+  font-weight: 800;
+}
+
+.player-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+}
+
+.chip {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.24rem 0.45rem;
+  background: var(--panel-raised);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.team-name {
+  background: transparent;
+}
+
+.roster-status {
+  min-width: 64px;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.status-main {
+  background: #7c1c13;
+  border-color: #af3525;
+  color: var(--ink);
+}
+
+.status-bench {
+  background: #362a1e;
+  border-color: #715539;
+  color: #dfc49c;
+}
+
+.status-trial {
+  background: #2a2c2e;
+  border-color: #565b60;
+  color: #d0d3d5;
+}
+
+/* Responsive */
 @media (max-width: 1120px) {
-  .team-grid {
+  .roster-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-}
 
-@media (max-width: 900px) {
-  .roster-hero,
   .roster-control-row {
     grid-template-columns: 1fr;
   }
 
+}
+
+@media (max-width: 900px) {
   .roster-hero {
-    padding-top: 2rem;
+    grid-template-columns: 1fr;
   }
 
   .team-summary {
     justify-content: flex-start;
-    min-width: 0;
   }
 
-  .team-grid {
+  .roster-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
 }
 
 @media (max-width: 620px) {
-  .roster-controls-section {
-    padding: 0.85rem 0;
-  }
-
-  .roster-control-row {
-    gap: 0.65rem;
-  }
-
-  .team-grid {
+  .roster-grid {
     grid-template-columns: 1fr;
-  }
-
-  .roster-dashboard {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .roster-page .hero-actions .button {
-    width: auto;
-    flex: 1 1 calc(50% - 0.65rem);
   }
 
   .dashboard-tile {
@@ -299,12 +245,11 @@
   }
 
   .team-summary {
-    gap: 0.36rem;
+    gap: 0.35rem;
   }
 
   .team-summary .summary-pill {
-    min-height: 34px;
-    padding: 0.38rem 0.52rem;
     font-size: 0.8rem;
   }
+
 }

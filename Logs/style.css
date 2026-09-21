@@ -1,35 +1,10 @@
-.logs-page .nav-links a[aria-current="page"] {
-  background: rgba(143, 47, 42, 0.2);
-  color: #fff0ee;
-}
-
-.subpage-hero {
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-  padding: clamp(2.4rem, 5vw, 4.8rem) 0 clamp(2rem, 4vw, 3rem);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.45fr);
-  align-items: center;
-  gap: clamp(1.5rem, 4vw, 3rem);
-}
-
-.subpage-hero h1 {
-  max-width: 700px;
-  font-size: clamp(3.2rem, 7vw, 6.4rem);
-}
-
+/* Logs hub, current progression and archived records. */
 .log-card {
   min-height: 220px;
   display: grid;
-  align-content: start;
-  gap: 0.4rem;
-  border: 1px solid rgba(214, 64, 53, 0.32);
-  border-radius: var(--radius);
-  padding: 1.2rem;
-  background:
-    linear-gradient(150deg, rgba(143, 47, 42, 0.08), rgba(61, 113, 110, 0.045)),
-    rgba(255, 255, 255, 0.035);
-  box-shadow: none;
+  align-content: center;
+  gap: 0.6rem;
+  padding: 1.35rem;
 }
 
 .log-card span {
@@ -39,11 +14,6 @@
   text-transform: uppercase;
 }
 
-.log-card strong,
-.log-card b {
-  color: #fff7f0;
-}
-
 .log-card strong {
   font-size: clamp(1.4rem, 3vw, 2rem);
 }
@@ -51,77 +21,101 @@
 .log-card b {
   color: var(--accent-bright);
   font-size: clamp(1.55rem, 3.2vw, 2.25rem);
-  line-height: 1.05;
-}
-
-.logs-hub-section {
-  padding-top: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1.1;
 }
 
 .logs-hub-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .logs-hub-card {
-  min-height: 190px;
+  min-height: 210px;
   display: grid;
   align-content: end;
-  gap: 0.28rem;
-  border: 1px solid rgba(214, 64, 53, 0.22);
-  border-radius: var(--radius);
-  padding: 1.05rem;
-  background:
-    linear-gradient(145deg, rgba(143, 47, 42, 0.055), rgba(61, 113, 110, 0.03)),
-    rgba(255, 255, 255, 0.028);
-  color: inherit;
+  gap: 0.4rem;
+  padding: 1.25rem;
   text-decoration: none;
-  transition: border-color 160ms ease, background 160ms ease;
+  transition: border-color 150ms ease, background 150ms ease;
 }
 
-.logs-hub-card:hover,
-.logs-hub-card:focus-visible {
-  border-color: rgba(226, 87, 77, 0.55);
-  background:
-    linear-gradient(145deg, rgba(143, 47, 42, 0.08), rgba(61, 113, 110, 0.04)),
-    rgba(255, 255, 255, 0.035);
-  outline: none;
+.logs-hub-card:hover {
+  border-color: var(--accent-bright);
+  background: var(--accent-soft);
 }
 
 .logs-hub-card svg {
   width: 28px;
   height: 28px;
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.1rem;
   color: var(--accent-bright);
 }
 
 .logs-hub-card span {
   color: var(--accent-bright);
   font-size: 0.74rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .logs-hub-card strong {
-  color: #fff7ef;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.45rem, 2.7vw, 2.1rem);
-  line-height: 1;
+  font: 700 clamp(1.45rem, 2.7vw, 2rem)/1.1 var(--display);
 }
 
 .logs-hub-card small {
-  color: #d8c8b8;
-  line-height: 1.45;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
-@media (max-width: 900px) {
-  .subpage-hero {
+.progress-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.progress-row {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.progress-row span {
+  font-weight: 700;
+}
+
+.progress-row strong {
+  font: 700 1.7rem var(--display);
+  color: var(--accent-bright);
+}
+
+.progress-row small {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.progress-list + .link-row {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1020px) {
+  .logs-hub-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 620px) {
+  .logs-hub-grid, .progress-list {
     grid-template-columns: 1fr;
   }
 
-  .logs-hub-grid {
-    grid-template-columns: 1fr;
+  .logs-hub-card {
+    min-height: 180px;
   }
+
 }
