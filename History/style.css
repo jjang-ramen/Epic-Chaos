@@ -1,0 +1,163 @@
+/* A shelf for the guild's older raid recordings. */
+.history-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.65fr);
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.history-hero h1 em {
+  color: var(--accent-bright);
+}
+
+.archive-cover {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--accent);
+  border-top: 8px solid var(--accent);
+  background: var(--ivory);
+  box-shadow: 10px 10px 0 var(--deep);
+  transform: rotate(2deg);
+}
+
+.archive-cover-top, .archive-cover-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.archive-cover-top, .archive-era, .archive-cover-bottom span {
+  font: 0.75rem/1.6 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.archive-cover-top {
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--line);
+}
+
+.archive-cover-top svg {
+  flex-shrink: 0;
+  color: var(--accent-bright);
+}
+
+.archive-era {
+  margin: 1.75rem 0 0.5rem;
+  color: var(--bronze);
+}
+
+.archive-cover > strong {
+  display: block;
+  font: 700 clamp(2.8rem, 5vw, 4.5rem)/0.95 var(--display);
+}
+
+.archive-cover-bottom {
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--line);
+}
+
+.archive-cover-bottom img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.archive-cover .handwritten {
+  margin: 1rem 0 0;
+  color: var(--ink);
+  font: 1rem/1.5 var(--handwriting);
+}
+
+.history-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 1.25rem;
+}
+
+.archive-entry {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.archive-entry .kill-card {
+  flex: 1;
+}
+
+.history-grid .youtube-preview img {
+  height: auto;
+}
+
+.history-grid .kill-info h3 {
+  font-size: clamp(1.5rem, 2vw, 1.85rem);
+}
+
+.archive-number {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--line);
+  background: var(--deep);
+  color: var(--ink);
+  font: 0.8rem/1.5 var(--mono);
+}
+
+.archive-source {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: 0.4rem;
+  min-height: 44px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-underline-offset: 0.2em;
+}
+
+.archive-source:hover {
+  color: var(--ink);
+}
+
+.archive-source svg {
+  width: 16px;
+  height: 16px;
+}
+
+.archive-credit {
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.history-next {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.5fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+.history-next .hero-actions {
+  display: grid;
+  margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .history-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .history-hero, .history-next, .history-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-cover {
+    width: 100%;
+    max-width: 440px;
+    transform: none;
+    box-shadow: none;
+  }
+}

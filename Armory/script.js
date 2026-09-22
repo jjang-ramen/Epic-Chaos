@@ -27,7 +27,7 @@ sectionLinks.forEach((link) => {
   });
 });
 
-function youtubeEmbedUrl(videoId) {
+function youtubeEmbedUrl(videoId, start = 0) {
   const params = new URLSearchParams({
     autoplay: "1",
     mute: "1",
@@ -38,6 +38,10 @@ function youtubeEmbedUrl(videoId) {
     modestbranding: "1",
     playsinline: "1"
   });
+
+  if (Number.isInteger(start) && start > 0) {
+    params.set("start", String(start));
+  }
 
   return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
 }
@@ -82,7 +86,7 @@ function openKillVideo(card) {
 
   modalTitle.textContent = title;
   modalYoutube.title = `${title} kill video`;
-  modalYoutube.src = youtubeEmbedUrl(videoId);
+  modalYoutube.src = youtubeEmbedUrl(videoId, Number(card.dataset.start || 0));
   modalYoutube.addEventListener("load", muteYoutubePlayer, { once: true });
   startMuteLock();
 

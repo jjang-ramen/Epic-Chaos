@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Epic Chaos Pictures</title>
+    <meta name="description" content="The Epic Chaos photo wall. Drag, explore, and revisit guild nights, group photos, and good company.">
+    <link rel="icon" type="image/png" href="../assets/epic-chaos-logo-v5.png">
+    <link rel="stylesheet" href="../theme.css?v=20260922-1">
+    <link rel="stylesheet" href="../style.css?v=20260922-1">
+    <link rel="stylesheet" href="style.css?v=3">
+    <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script defer src="script.js?v=1"></script>
+    <script defer src="../nav.js?v=1"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Epic Chaos home">
+          <img class="brand-logo-img" src="../assets/epic-chaos-logo-v5.png" alt="" width="46" height="46">
+          <span>
+            <strong>Epic Chaos</strong>
+            <small>US - Zul'jin</small>
+          </span>
+        </a>
+
+        <button class="icon-button nav-toggle" type="button" aria-label="Open navigation" aria-controls="siteNav" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+
+        <div class="nav-links" id="siteNav">
+          <a href="/">Home</a>
+          <details class="nav-group">
+            <summary>Guild<span aria-hidden="true">⌄</span></summary>
+            <div class="nav-dropdown" aria-label="Guild">
+              <a href="/#about">About us</a>
+              <a href="/Roster/">Roster</a>
+              <a href="/Officers/">Officers</a>
+              <a href="/Causes/">Community</a>
+              <a href="/#contact">Contact & Discord</a>
+            </div>
+          </details>
+          <details class="nav-group">
+            <summary>Raiding<span aria-hidden="true">⌄</span></summary>
+            <div class="nav-dropdown" aria-label="Raiding">
+              <a href="/Logs/">Logs & progress</a>
+              <a href="/Armory/Season-2/">Season 2 kills</a>
+              <a href="/Armory/">Season 1 archive</a>
+              <a href="/Kill-Team/">Season 1 kill records</a>
+              <a href="/#requirements">Raid rules</a>
+            </div>
+          </details>
+          <details class="nav-group is-current">
+            <summary>Memories<span aria-hidden="true">⌄</span></summary>
+            <div class="nav-dropdown" aria-label="Memories">
+              <a href="/Pictures/" aria-current="page">Pictures</a>
+              <a href="/History/">Guild history</a>
+            </div>
+          </details>
+          <a class="nav-apply" href="/#recruitment">Join the guild <span aria-hidden="true">↗</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="pictures-intro section-inner" aria-labelledby="picturesTitle">
+        <div><p class="eyebrow">The Epic Chaos photo wall</p><h1 id="picturesTitle">Wish you were <em>here.</em></h1></div>
+        <p>Bosses down. Mounts out. Everybody squeeze in.<br>A few moments worth keeping.</p>
+      </section>
+      <section class="gallery" aria-label="Guild pictures">
+        <div class="gallery-toolbar">
+          <p id="galleryHelp">Seven pictures. Plenty of Chaos.</p>
+          <div class="gallery-controls" hidden>
+            <div class="view-switch" role="group" aria-label="Gallery view">
+              <button type="button" id="wallView" aria-pressed="false">Photo wall</button>
+              <button type="button" id="gridView" aria-pressed="true">Grid</button>
+            </div>
+            <button type="button" id="resetWall">Reset wall</button>
+          </div>
+        </div>
+        <div class="gallery-viewport" id="photoWall" tabindex="0" aria-label="Photo wall" aria-describedby="galleryHelp">
+          <div class="photo-board">
+          <a class="photo" href="images/glory.png" data-title="Glory days" data-caption="The crew and their matching mounts." data-x="80" data-y="65" style="--x:80px;--y:65px;--angle:-4deg" aria-label="View Glory days">
+            <img src="thumbs/glory.jpg" alt="The crew and their matching mounts." draggable="false" decoding="async" >
+            <span class="photo-label"><span>Glory days</span><small>01 / 07</small></span>
+          </a>
+          <a class="photo" href="images/dragons.png" data-title="Double dragons" data-caption="A group photo with some very large company." data-x="585" data-y="40" style="--x:585px;--y:40px;--angle:3deg" aria-label="View Double dragons">
+            <img src="thumbs/dragons.jpg" alt="A group photo with some very large company." draggable="false" decoding="async" >
+            <span class="photo-label"><span>Double dragons</span><small>02 / 07</small></span>
+          </a>
+          <a class="photo" href="images/lura.png" data-title="Lura · Heroic" data-caption="One for the raid-night scrapbook." data-x="1060" data-y="100" style="--x:1060px;--y:100px;--angle:-3deg" aria-label="View Lura · Heroic">
+            <img src="thumbs/lura.jpg" alt="One for the raid-night scrapbook." draggable="false" decoding="async" >
+            <span class="photo-label"><span>Lura · Heroic</span><small>03 / 07</small></span>
+          </a>
+          <a class="photo" href="images/vanguard.png" data-title="Vanguard" data-caption="Everyone in. Even the extra-tall ones." data-x="160" data-y="405" style="--x:160px;--y:405px;--angle:3deg" aria-label="View Vanguard">
+            <img src="thumbs/vanguard.jpg" alt="Everyone in. Even the extra-tall ones." draggable="false" decoding="async" loading="lazy">
+            <span class="photo-label"><span>Vanguard</span><small>04 / 07</small></span>
+          </a>
+          <a class="photo" href="images/june.png" data-title="Under the stars" data-caption="A guild night to remember · June 2026." data-x="655" data-y="410" style="--x:655px;--y:410px;--angle:-2deg" aria-label="View Under the stars">
+            <img src="thumbs/june.jpg" alt="A guild night to remember · June 2026." draggable="false" decoding="async" loading="lazy">
+            <span class="photo-label"><span>Under the stars</span><small>05 / 07</small></span>
+          </a>
+          <a class="photo" href="images/bird.png" data-title="Bird is the word" data-caption="A little chaos in the group photo." data-x="1090" data-y="470" style="--x:1090px;--y:470px;--angle:4deg" aria-label="View Bird is the word">
+            <img src="thumbs/bird.jpg" alt="A little chaos in the group photo." draggable="false" decoding="async" loading="lazy">
+            <span class="photo-label"><span>Bird is the word</span><small>06 / 07</small></span>
+          </a>
+          <a class="photo" href="images/september.png" data-title="The whole gang" data-caption="A moment together · September 2026." data-x="420" data-y="755" style="--x:420px;--y:755px;--angle:-3deg" aria-label="View The whole gang">
+            <img src="thumbs/september.jpg" alt="A moment together · September 2026." draggable="false" decoding="async" loading="lazy">
+            <span class="photo-label"><span>The whole gang</span><small>07 / 07</small></span>
+          </a>
+          </div>
+        </div>
+        <p class="gallery-note">Same guild. Different adventures. <span>More memories on the way.</span></p>
+      </section>
+      <section class="pictures-more section-inner" aria-label="Guild videos">
+        <div><p class="eyebrow">Prefer moving pictures?</p><h2>Roll the raid tapes.</h2></div>
+        <div class="hero-actions"><a class="button primary" href="/Armory/Season-2/">Season 2 kills <i data-lucide="play"></i></a><a class="button" href="/History/">The old-school archives <i data-lucide="history"></i></a></div>
+      </section>
+    </main>
+    <dialog id="photoDialog" class="photo-dialog" aria-labelledby="photoTitle">
+      <div class="viewer-top"><span id="photoCount"></span><button type="button" id="closePhoto" aria-label="Close picture">Close <span aria-hidden="true">×</span></button></div>
+      <img id="fullPhoto" alt="">
+      <div class="viewer-bottom">
+        <button type="button" id="previousPhoto" aria-label="Previous picture">←</button>
+        <div aria-live="polite"><h2 id="photoTitle"></h2><p id="photoCaption"></p><a id="originalPhoto" href="#">Open original image</a></div>
+        <button type="button" id="nextPhoto" aria-label="Next picture">→</button>
+      </div>
+    </dialog>
+    <footer class="site-footer">
+      <nav class="footer-directory" aria-label="Site directory">
+        <div><h2>Guild</h2>
+          <a href="/#about">About us</a>
+          <a href="/Roster/">Roster</a>
+          <a href="/Officers/">Officers</a>
+          <a href="/Causes/">Community</a>
+          <a href="/#contact">Contact & Discord</a>
+        </div>
+        <div><h2>Raiding</h2>
+          <a href="/Logs/">Logs & progress</a>
+          <a href="/Armory/Season-2/">Season 2 kills</a>
+          <a href="/Armory/">Season 1 archive</a>
+          <a href="/Kill-Team/">Season 1 kill records</a>
+          <a href="/#requirements">Raid rules</a>
+        </div>
+        <div><h2>Memories</h2>
+          <a href="/Pictures/">Pictures</a>
+          <a href="/History/">Guild history</a>
+        </div>
+        <div><h2>Join us</h2><a href="/#recruitment">Open raid spots</a><a href="https://forms.gle/5R5TwA4dQadTschp9">Apply to Epic Chaos</a><a href="/#contact">Say hello</a></div>
+      </nav>
+      <p><a href="/">Epic Chaos &middot; US-Zul'jin</a><span>Embrace the Chaos. Be Epic.</span></p>
+    </footer>
+  </body>
+</html>

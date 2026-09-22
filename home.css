@@ -65,6 +65,7 @@
 
 .hero-focus strong {
   font-size: 1.3rem;
+  color: var(--bronze);
 }
 
 .hero-focus small {
@@ -111,7 +112,8 @@
 .guild-photo {
   margin: 0 0 25px;
   padding: 10px 10px 15px;
-  background: var(--panel);
+  background: var(--ivory);
+  color: var(--ivory-ink);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   transform: rotate(2deg);
@@ -131,7 +133,7 @@
 .guild-photo small {
   display: block;
   margin-top: 4px;
-  color: var(--muted);
+  color: #5e5548;
   font: 0.7rem var(--body-font);
 }
 
@@ -139,14 +141,15 @@
   width: 92%;
   margin: auto;
   padding: 22px 25px;
-  border: 1px solid var(--accent-bright);
-  background: var(--accent-dark);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--accent);
+  background: var(--ivory);
   transform: rotate(-1deg);
   box-shadow: var(--shadow);
 }
 
 .raid-ticket .section-kicker {
-  color: var(--ink);
+  color: var(--accent-dark);
   margin-bottom: 8px;
 }
 
@@ -159,6 +162,7 @@
 .ticket-progress strong {
   font: 700 4.7rem/1 var(--display);
   letter-spacing: -0.06em;
+  color: var(--accent-dark);
 }
 
 .ticket-progress span {
@@ -174,19 +178,19 @@
   height: 10px;
   margin: 14px 0 9px;
   border: 0;
-  background: #450b06;
+  background: var(--line);
 }
 
 .raid-ticket progress::-webkit-progress-bar {
-  background: #450b06;
+  background: var(--line);
 }
 
 .raid-ticket progress::-webkit-progress-value {
-  background: var(--ink);
+  background: var(--accent);
 }
 
 .raid-ticket progress::-moz-progress-bar {
-  background: var(--ink);
+  background: var(--accent);
 }
 
 .raid-ticket .handwritten {
@@ -200,7 +204,7 @@
   align-items: center;
   gap: 8px;
   padding-top: 12px;
-  border-top: 1px dashed rgb(255 255 255 / 35%);
+  border-top: 1px dashed var(--line);
   font-size: 0.78rem;
   font-weight: bold;
   text-underline-offset: 3px;
@@ -504,6 +508,12 @@
 .about-copy {
   columns: 2 280px;
   line-height: 1.7;
+}
+
+.history-invite {
+  max-width: 42ch;
+  margin: 1rem 0;
+  color: var(--muted);
 }
 
 .requirement-panel, .resource-columns {

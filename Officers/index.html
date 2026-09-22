@@ -6,15 +6,16 @@
     <title>Epic Chaos Officers</title>
     <meta
       name="description"
-      content="Meet the Epic Chaos guild leadership team: Jess, Dragons, Riorson, Giaus, Tiberius, and Ramenfury."
+      content="Meet the Epic Chaos guild leadership team: Jess, Dragons, Riorson, Giaus, and Ramenfury."
     >
     <link rel="icon" type="image/png" href="../assets/epic-chaos-logo-v5.png">
     <link rel="apple-touch-icon" href="../assets/epic-chaos-logo-v5.png">
-    <link rel="stylesheet" href="../theme.css?v=20260920-1">
-    <link rel="stylesheet" href="../style.css?v=20260920-1">
+    <link rel="stylesheet" href="../theme.css?v=20260922-1">
+    <link rel="stylesheet" href="../style.css?v=20260922-1">
     <link rel="stylesheet" href="style.css?v=20260920-2">
     <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
     <script defer src="script.js?v=4"></script>
+    <script defer src="../nav.js?v=1"></script>
   </head>
   <body class="officers-page">
     <a class="skip-link" href="#content">Skip to content</a>
@@ -35,13 +36,34 @@
 
         <div class="nav-links" id="siteNav">
           <a href="/">Home</a>
-          <a href="/Roster/">Roster</a>
-          <a href="/Officers/" aria-current="page">Officers</a>
-          <a href="/Logs/">Logs</a>
-          <a href="/Causes/">Community</a>
-          <a class="nav-cta" href="/#recruitment" data-scroll-target="recruitment">Recruitment</a>
-          <a class="nav-apply" href="https://forms.gle/5R5TwA4dQadTschp9">Apply</a>
-          <a href="/#contact" data-scroll-target="contact">Contact</a>
+          <details class="nav-group is-current">
+            <summary>Guild<span aria-hidden="true">⌄</span></summary>
+            <div class="nav-dropdown" aria-label="Guild">
+              <a href="/#about">About us</a>
+              <a href="/Roster/">Roster</a>
+              <a href="/Officers/" aria-current="page">Officers</a>
+              <a href="/Causes/">Community</a>
+              <a href="/#contact">Contact & Discord</a>
+            </div>
+          </details>
+          <details class="nav-group">
+            <summary>Raiding<span aria-hidden="true">⌄</span></summary>
+            <div class="nav-dropdown" aria-label="Raiding">
+              <a href="/Logs/">Logs & progress</a>
+              <a href="/Armory/Season-2/">Season 2 kills</a>
+              <a href="/Armory/">Season 1 archive</a>
+              <a href="/Kill-Team/">Season 1 kill records</a>
+              <a href="/#requirements">Raid rules</a>
+            </div>
+          </details>
+          <details class="nav-group">
+            <summary>Memories<span aria-hidden="true">⌄</span></summary>
+            <div class="nav-dropdown" aria-label="Memories">
+              <a href="/Pictures/">Pictures</a>
+              <a href="/History/">Guild history</a>
+            </div>
+          </details>
+          <a class="nav-apply" href="/#recruitment">Join the guild <span aria-hidden="true">↗</span></a>
         </div>
       </nav>
     </header>
@@ -100,8 +122,8 @@
               </div>
             </article>
 
-            <article class="officer-card officer-riorson">
-              <div class="officer-placeholder" aria-hidden="true"><span>R</span></div>
+            <article class="officer-card officer-riorson" style="--focus: 60% 35%;">
+              <img src="../assets/officers/riorson.png" alt="Riorson character portrait" width="726" height="786">
               <div class="officer-info">
                 <h2>Riorson</h2>
                 <div class="officer-badges" aria-label="Riorson roles">
@@ -120,18 +142,6 @@
                   <span><i data-lucide="swords"></i> Assistant Raid Leader</span>
                   <span><i data-lucide="shield"></i> Officer</span>
                   <span><i data-lucide="shield-plus"></i> Tank</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="officer-card officer-tiberius" style="--focus: 50% 48%;">
-              <img src="../assets/officers/tiberius.png" alt="Tiberius character portrait" width="1036" height="1359">
-              <div class="officer-info">
-                <h2>Tiberius</h2>
-                <div class="officer-badges" aria-label="Tiberius roles">
-                  <span><i data-lucide="sword"></i> DPS Leader</span>
-                  <span><i data-lucide="shield"></i> Officer</span>
-                  <span><i data-lucide="sword"></i> DPS</span>
                 </div>
               </div>
             </article>
@@ -160,6 +170,27 @@
     </div>
 
     <footer class="site-footer">
+      <nav class="footer-directory" aria-label="Site directory">
+        <div><h2>Guild</h2>
+          <a href="/#about">About us</a>
+          <a href="/Roster/">Roster</a>
+          <a href="/Officers/">Officers</a>
+          <a href="/Causes/">Community</a>
+          <a href="/#contact">Contact & Discord</a>
+        </div>
+        <div><h2>Raiding</h2>
+          <a href="/Logs/">Logs & progress</a>
+          <a href="/Armory/Season-2/">Season 2 kills</a>
+          <a href="/Armory/">Season 1 archive</a>
+          <a href="/Kill-Team/">Season 1 kill records</a>
+          <a href="/#requirements">Raid rules</a>
+        </div>
+        <div><h2>Memories</h2>
+          <a href="/Pictures/">Pictures</a>
+          <a href="/History/">Guild history</a>
+        </div>
+        <div><h2>Join us</h2><a href="/#recruitment">Open raid spots</a><a href="https://forms.gle/5R5TwA4dQadTschp9">Apply to Epic Chaos</a><a href="/#contact">Say hello</a></div>
+      </nav>
       <p><a href="/">Epic Chaos &middot; US-Zul'jin</a><span>Embrace the Chaos. Be Epic.</span></p>
     </footer>
   </body>
