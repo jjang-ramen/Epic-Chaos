@@ -11,13 +11,29 @@
     <link rel="icon" type="image/png" href="assets/epic-chaos-logo-v5.png">
     <link rel="apple-touch-icon" href="assets/epic-chaos-logo-v5.png">
     <link rel="stylesheet" href="theme.css?v=20260922-1">
-    <link rel="stylesheet" href="style.css?v=20260922-1">
+    <link rel="stylesheet" href="style.css?v=20261012-1">
     <link rel="stylesheet" href="home.css?v=20260922-1">
+    <script defer src="notice.js?v=1"></script>
     <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
     <script defer src="script.js?v=21"></script>
     <script defer src="nav.js?v=1"></script>
   </head>
   <body class="home-page">
+
+    <dialog class="entry-notice" id="entryNotice" aria-labelledby="entryNoticeTitle" aria-describedby="entryNoticeMessage" open>
+      <div class="entry-notice-card">
+        <p class="entry-notice-label">A note from the site owner</p>
+        <h1 id="entryNoticeTitle">A new chapter.</h1>
+        <div id="entryNoticeMessage">
+          <p>I&rsquo;ve moved to a new guild, and this website is <strong>no longer associated with Epic Chaos.</strong></p>
+          <p>I wish everyone in the guild the best of luck and all the best for the road ahead.</p>
+        </div>
+        <form method="dialog">
+          <button class="button primary" type="submit" autofocus>Continue to website</button>
+        </form>
+      </div>
+    </dialog>
+
     <a class="skip-link" href="#content">Skip to content</a>
 
     <header class="site-header">
@@ -435,6 +451,7 @@
     </div>
 
     <footer class="site-footer">
+      <p class="site-status">This website is no longer associated with Epic Chaos. Wishing the guild the best of luck.</p>
       <nav class="footer-directory" aria-label="Site directory">
         <div><h2>Guild</h2>
           <a href="/#about">About us</a>

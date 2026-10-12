@@ -1,5 +1,52 @@
 /* Shared foundations, navigation and components. Page layouts live alongside their HTML. */
 
+/* First-entry affiliation notice. Present in HTML so it does not depend on scripts to appear. */
+.entry-notice {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: clamp(1.25rem, 5vw, 4rem);
+  border: 0;
+  background: var(--bg);
+  color: var(--ivory-ink);
+  overflow-y: auto;
+}
+.entry-notice[open] { display: grid; place-items: center; }
+.entry-notice::backdrop { background: var(--bg); }
+.entry-notice-card {
+  width: min(100%, 640px);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border-top: 5px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--ivory);
+  box-shadow: var(--shadow);
+}
+.entry-notice-label {
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.entry-notice h1 { font-size: clamp(2.6rem, 7vw, 4rem); margin-bottom: 1.5rem; }
+.entry-notice-card p { line-height: 1.7; }
+.entry-notice-card form { margin-top: 1.75rem; }
+.entry-notice .button { width: 100%; color: var(--ivory); }
+.entry-notice .button:focus-visible { outline-color: var(--ivory-ink); }
+.notice-open, .notice-open body { overflow: hidden; }
+.site-footer .site-status {
+  display: block;
+  padding: 0.75rem 0 1.25rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
 /* Foundations */
 * {
   box-sizing: border-box;
